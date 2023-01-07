@@ -70,31 +70,31 @@ def ULTPIC():
 
 buttons = [
     [
-        Button.url(get_string("bot_3"), "https://github.com/TeamUltroid/Ultroid"),
-        Button.url(get_string("bot_4"), "t.me/UltroidSupportChat"),
+        Button.url(get_string("bot_3"), "https://t.me/Tepthone"),
+        Button.url(get_string("bot_4"), "t.me/Tepthon_Help"),
     ]
 ]
 
 # Will move to strings
 alive_txt = """
-The Ultroid Userbot
+هذا هو سورس تيبثون العربي
 
-  ◍ Version - {}
-  ◍ Py-Ultroid - {}
-  ◍ Telethon - {}
+  ◍ الإصدار - {}
+  ◍ اصدار تيبثون - {}
+  ◍ إصدار تليثون - {}
 """
 
-in_alive = "{}\n\n🌀 <b>Ultroid Version -><b> <code>{}</code>\n🌀 <b>PyUltroid -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>Join @TeamUltroid</b>"
+in_alive = "{}\n\n🌀 <b>اصدار تيبثون -><b> <code>{}</code>\n🌀 <b>تيبثون -></b> <code>{}</code>\n🌀 <b>البايثون -></b> <code>{}</code>\n🌀 <b>مدة التشغيل -></b> <code>{}</code>\n🌀 <b>قناة السورس -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
-@callback("alive")
+@callback("فحص")
 async def alive(event):
     text = alive_txt.format(ultroid_version, UltVer, __version__)
     await event.answer(text, alert=True)
 
 
 @ultroid_cmd(
-    pattern="alive( (.*)|$)",
+    pattern="فحص( (.*)|$)",
 )
 async def lol(ult):
     match = ult.pattern_match.group(1).strip()
@@ -190,7 +190,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="cmds$",
+    pattern="الاوامر$",
 )
 async def cmds(event):
     await allcmds(event, Telegraph)
@@ -200,7 +200,7 @@ heroku_api = Var.HEROKU_API
 
 
 @ultroid_cmd(
-    pattern="restart$",
+    pattern="اعادة تشغيل$",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -218,7 +218,7 @@ async def restartbt(ult):
 
 
 @ultroid_cmd(
-    pattern="shutdown$",
+    pattern="اغلق$",
     fullsudo=True,
 )
 async def shutdownbot(ult):
@@ -226,7 +226,7 @@ async def shutdownbot(ult):
 
 
 @ultroid_cmd(
-    pattern="logs( (.*)|$)",
+    pattern="السجلات( (.*)|$)",
     chats=[],
 )
 async def _(event):
@@ -335,7 +335,7 @@ async def _(e):
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/TeamUltroid/Ultroid/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://t.me/Tepthone"قناة السورس}">[{قناة السورس}]}</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
@@ -347,7 +347,7 @@ async def updava(event):
     await asst.send_file(
         udB.get_key("LOG_CHANNEL"),
         ULTPIC(),
-        caption="• **Update Available** •",
+        caption="• **تحديث متوفر!!!!!** •",
         force_document=False,
         buttons=Button.inline("Changelogs", data="changes"),
     )
