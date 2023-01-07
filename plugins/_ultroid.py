@@ -14,27 +14,27 @@ from telethon.errors import (
 from . import LOG_CHANNEL, LOGS, Button, asst, eor, get_string, ultroid_cmd
 
 REPOMSG = """
-• **ULTROID USERBOT** •\n
-• Repo - [Click Here](https://github.com/TeamUltroid/Ultroid)
-• Addons - [Click Here](https://github.com/TeamUltroid/UltroidAddons)
-• Support - @UltroidSupportChat
+• **سورس تيبثون العربي** •\n
+• قناة السورس - [Click Here](https://t.me/Tepthone)
+• المطور - [Click Here](https://t.me/PPF22)
+• كروب الدعم 🔧 - @Tepthon_Help
 """
 
 RP_BUTTONS = [
     [
-        Button.url(get_string("bot_3"), "https://github.com/TeamUltroid/Ultroid"),
-        Button.url("Addons", "https://github.com/TeamUltroid/UltroidAddons"),
+        Button.url(get_string("bot_3"), "https://t.me/Tepthonee"),
+        Button.url("المطور ♥️", "https://t.me/PPF22"),
     ],
-    [Button.url("Support Group", "t.me/UltroidSupportChat")],
+    [Button.url("كروب المساعدة 🛠️", "t.me/Tepthon_Help")],
 ]
 
-ULTSTRING = """🎇 **Thanks for Deploying Ultroid Userbot!**
+ULTSTRING = """🎇 **شكرًا على تنصيب سورس تيبثون العربي!**
 
-• Here, are the Some Basic stuff from, where you can Know, about its Usage."""
+• فيما يلي بعض العناصر الأساسية ، حيث يمكنك معرفة استخدامها."""
 
 
 @ultroid_cmd(
-    pattern="repo$",
+    pattern="قناة السورس$",
     manager=True,
 )
 async def repify(e):
@@ -59,7 +59,7 @@ async def useUltroid(rs):
     msg = await asst.send_message(
         LOG_CHANNEL,
         ULTSTRING,
-        file="https://graph.org/file/54a917cc9dbb94733ea5f.jpg",
+        file="https://telegra.ph/file/c0c898f1370417fbfc018.jpg",
         buttons=button,
     )
     if not (rs.chat_id == LOG_CHANNEL and rs.client._bot):
