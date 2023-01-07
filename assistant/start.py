@@ -29,7 +29,7 @@ if Owner_info_msg is None:
 
 **Message Forwards** - {udB.get_key("PMBOT")}
 
-**Ultroid [v{ultroid_version}](https://github.com/TeamUltroid/Ultroid), powered by @TeamUltroid**
+**Ultroid [v{اصدار تيبثون}](https://t.me/Tepthone), قناة السورس @Tepthone**
 """
 
 
@@ -71,7 +71,7 @@ async def own(event):
         msg += "\n\n• Powered by **@TeamUltroid**"
     await event.edit(
         msg,
-        buttons=[Button.inline("Close", data="closeit")],
+        buttons=[Button.inline("إغلاق", data="closeit")],
         link_preview=False,
     )
 
