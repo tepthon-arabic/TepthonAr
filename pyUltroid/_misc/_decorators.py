@@ -195,7 +195,7 @@ def ultroid_cmd(
                         error_log = await asst.send_file(
                             udB.get_key("LOG_CHANNEL"),
                             file,
-                            caption="**خطأ عميل تيبثون:** `Forward this to` @UltroidSupportChat\n\n",
+                            caption="**خطأ عميل تيبثون:** `وجه الرساله إلى كروب الدعم` @Tepthon_Help\n\n",
                         )
                 else:
                     error_log = await asst.send_message(
