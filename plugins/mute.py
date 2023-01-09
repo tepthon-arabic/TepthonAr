@@ -5,7 +5,7 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ الاوامر المتاحه -
 
 • `{i}mute <reply to msg/ user id>`
     Mute user in current chat.
@@ -44,10 +44,10 @@ async def watcher(event):
 
 
 @ultroid_cmd(
-    pattern="dmute( (.*)|$)",
+    pattern="كتم( (.*)|$)",
 )
 async def startmute(event):
-    xx = await event.eor("`Muting...`")
+    xx = await event.eor("`تم كتم الصوت ...`")
     if input_ := event.pattern_match.group(1).strip():
         try:
             userid = await event.client.parse_id(input_)
@@ -71,14 +71,14 @@ async def startmute(event):
     if is_muted(event.chat_id, userid):
         return await xx.eor("`This user is already muted in this chat.`", time=5)
     mute(event.chat_id, userid)
-    await xx.eor("`Successfully muted...`", time=3)
+    await xx.eor("`تم الـكتـم بنجاح ♥️🥀...`", time=3)
 
 
 @ultroid_cmd(
-    pattern="undmute( (.*)|$)",
+    pattern="الغاء الكتم( (.*)|$)",
 )
 async def endmute(event):
-    xx = await event.eor("`Unmuting...`")
+    xx = await event.eor("`جاري إلـغـاء الـكـتـم...`")
     if input_ := event.pattern_match.group(1).strip():
         try:
             userid = await event.client.parse_id(input_)
@@ -93,21 +93,21 @@ async def endmute(event):
     if not is_muted(event.chat_id, userid):
         return await xx.eor("`This user is not muted in this chat.`", time=3)
     unmute(event.chat_id, userid)
-    await xx.eor("`Successfully unmuted...`", time=3)
+    await xx.eor("`تم إلغاء الكتم بنجاح 🤍...`", time=3)
 
 
 @ultroid_cmd(
-    pattern="tmute",
+    pattern="كتم",
     groups_only=True,
     manager=True,
 )
 async def _(e):
-    xx = await e.eor("`Muting...`")
+    xx = await e.eor("`جاري الكتم 🤫...`")
     huh = e.text.split()
     try:
         tme = huh[1]
     except IndexError:
-        return await xx.eor("`Time till mute?`", time=5)
+        return await xx.eor("`الوقت حتى كتم الصوت?`", time=5)
     try:
         input = huh[2]
     except IndexError:
@@ -123,7 +123,7 @@ async def _(e):
     else:
         return await xx.eor(get_string("tban_1"), time=3)
     if userid == ultroid_bot.uid:
-        return await xx.eor("`I can't mute myself.`", time=3)
+        return await xx.eor("`الوقت حتى كتم الصوت.`", time=3)
     try:
         bun = ban_time(tme)
         await e.client.edit_permissions(
@@ -142,12 +142,12 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="unmute( (.*)|$)",
+    pattern="الغاء الكتم( (.*)|$)",
     admins_only=True,
     manager=True,
 )
 async def _(e):
-    xx = await e.eor("`Unmuting...`")
+    xx = await e.eor("`جاري الغاء الكتم 🤫...`")
     input = e.pattern_match.group(1).strip()
     chat = await e.get_chat()
     if e.reply_to_msg_id:
@@ -168,7 +168,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Unmuted` [{name}](tg://user?id={userid}) `in {chat.title}`",
+            f"`تم إلغاء الـكـتـم بـنـجـاح 🤍🥀` [{name}](tg://user?id={userid}) `in {chat.title}`",
             time=5,
         )
     except BaseException as m:
@@ -176,10 +176,10 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="mute( (.*)|$)", admins_only=True, manager=True, require="ban_users"
+    pattern="كتم( (.*)|$)", admins_only=True, manager=True, require="ban_users"
 )
 async def _(e):
-    xx = await e.eor("`Muting...`")
+    xx = await e.eor("`جاري الكتم...`")
     input = e.pattern_match.group(1).strip()
     chat = await e.get_chat()
     if e.reply_to_msg_id:
@@ -194,7 +194,7 @@ async def _(e):
     else:
         return await xx.eor(get_string("tban_1"), time=3)
     if userid == ultroid_bot.uid:
-        return await xx.eor("`I can't mute myself.`", time=3)
+        return await xx.eor("`الوقت حتى كتم الصوت.`", time=3)
     try:
         await e.client.edit_permissions(
             chat.id,
@@ -204,7 +204,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` {name} `in {chat.title}`",
+            f"`تم الـكـتـم بـنـجـاح 🤫🖤` {name} `in {chat.title}`",
         )
     except BaseException as m:
         await xx.eor(f"`{m}`", time=5)
