@@ -21,20 +21,20 @@ from . import append_or_update, owner_and_sudos
 OWNER = ultroid_bot.full_name
 
 MSG = f"""
-**Ultroid - UserBot**
+**Tepthon - UserBot**
 ➖➖➖➖➖➖➖➖➖➖
-**Owner**: [{OWNER}](tg://user?id={ultroid_bot.uid})
-**Support**: @TeamUltroid
+**المالك**: [{OWNER}](tg://user?id={ultroid_bot.uid})
+**كروب الدعم**: @Tepthon_Help
 ➖➖➖➖➖➖➖➖➖➖
 """
 
 IN_BTTS = [
     [
         Button.url(
-            "Repository",
-            url="https://github.com/TeamUltroid/Ultroid",
+            "‹ قناة السورس ›",
+            url="https://t.me/Tepthone",
         ),
-        Button.url("Support", url="https://t.me/UltroidSupportChat"),
+        Button.url("‹ كروب الدعم ›", url="https://t.me/Tepthone_Help"),
     ]
 ]
 
@@ -91,12 +91,12 @@ def in_pattern(pattern=None, owner=False, **kwargs):
             if owner and event.sender_id not in owner_and_sudos():
                 res = [
                     await event.builder.article(
-                        title="Ultroid Userbot",
-                        url="https://t.me/TeamUltroid",
-                        description="(c) TeamUltroid",
+                        title="Tepthon Userbot",
+                        url="https://t.me/Tepthone",
+                        description="(c) TeamTepthon",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://graph.org/file/dde85d441fa051a0d7d1d.jpg",
+                            "https://telegra.ph/file/1a71be934347067e0d4b3.jpg",
                             0,
                             "image/jpeg",
                             [],
@@ -106,7 +106,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                 ]
                 return await event.answer(
                     res,
-                    switch_pm=f"🤖: Assistant of {OWNER}",
+                    switch_pm=f"🤖: مساعد {OWNER}",
                     switch_pm_param="start",
                 )
             try:
@@ -124,10 +124,10 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                     await event.answer(
                         [
                             await event.builder.article(
-                                title="Unhandled Exception has Occured!",
+                                title="حدث استثناء غير معالج!",
                                 text=error_text(),
                                 buttons=Button.url(
-                                    "Report", "https://t.me/UltroidSupportChat"
+                                    "للإبلاغ عن مشكله", "https://t.me/Tepthon_Help"
                                 ),
                             )
                         ]
