@@ -172,7 +172,7 @@ class SqlDB(_BaseDatabase):
             )
         except Exception as error:
             LOGS.exception(error)
-            LOGS.info("Invaid SQL Database")
+            LOGS.info("قاعدة البيانات غير صالحة الرجاء التأكد من القاعدة")
             if self._connection:
                 self._connection.close()
             sys.exit()
@@ -335,7 +335,7 @@ def UltroidDB():
         _er = True
     if not _er:
         LOGS.critical(
-            "No DB requirement fullfilled!\nPlease install redis, mongo or sql dependencies...\nTill then using local file as database."
+            "لم يتم توفير بمتطلبات DB!\nالرجاء تثبيت redis, تبعيات mongo أو SQL...\n حتى ذلك الحين باستخدام الملف المحلي كقاعدة بيانات."
         )
     if HOSTED_ON == "termux":
         return LocalDB()
