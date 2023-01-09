@@ -180,10 +180,10 @@ async def lol(ult):
     )
 
 
-@ultroid_cmd(pattern="ping$", chats=[], type=["official", "assistant"])
+@ultroid_cmd(pattern="بنك$", chats=[], type=["official", "assistant"])
 async def _(event):
     start = time.time()
-    x = await event.eor("Pong !")
+    x = await event.eor("البنك !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit(get_string("ping").format(end, uptime))
@@ -239,11 +239,11 @@ async def _(event):
         with open(file, "r") as f:
             code = f.read()[-2500:]
         file = await Carbon(
-            file_name="ultroid-logs",
+            file_name="tepthon-logs",
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**Ultroid Logs.**", file=file)
+        await event.reply("**سجلات تيبثون.**", file=file)
     elif opt == "open":
         with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
@@ -253,7 +253,7 @@ async def _(event):
     await event.try_delete()
 
 
-@in_pattern("alive", owner=True)
+@in_pattern("فحص", owner=True)
 async def inline_alive(ult):
     pic = udB.get_key("ALIVE_PIC")
     if isinstance(pic, list):
@@ -288,8 +288,8 @@ async def inline_alive(ult):
                 results = [
                     await builder.document(
                         pic,
-                        title="Inline Alive",
-                        description="@TeamUltroid",
+                        title="فحص الانلاين",
+                        description="@Tepthone",
                         parse_mode="html",
                         buttons=buttons,
                     )
@@ -305,7 +305,7 @@ async def inline_alive(ult):
     await ult.answer(result)
 
 
-@ultroid_cmd(pattern="update( (.*)|$)")
+@ultroid_cmd(pattern="تحديث( (.*)|$)")
 async def _(e):
     xx = await e.eor(get_string("upd_1"))
     if e.pattern_match.group(1).strip() and (
@@ -323,7 +323,7 @@ async def _(e):
         x = await asst.send_file(
             udB.get_key("LOG_CHANNEL"),
             ULTPIC(),
-            caption="• **Update Available** •",
+            caption="• **تحديث متوفر** •",
             force_document=False,
             buttons=Button.inline("Changelogs", data="changes"),
         )
@@ -341,7 +341,7 @@ async def _(e):
         )
 
 
-@callback("updtavail", owner=True)
+@callback("تحديث", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
