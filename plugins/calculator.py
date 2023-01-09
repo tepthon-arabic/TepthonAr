@@ -43,7 +43,7 @@ lst = list(zip(tultd[::4], tultd[1::4], tultd[2::4], tultd[3::4]))
 lst.append([Button.inline("=", data="calc=")])
 
 
-@ultroid_cmd(pattern="calc")
+@ultroid_cmd(pattern="الحاسبة")
 async def icalc(e):
     udB.del_key("calc")
     if e.client._bot:
@@ -53,7 +53,7 @@ async def icalc(e):
     await e.delete()
 
 
-@in_pattern("calc", owner=True)
+@in_pattern("الحاسبة", owner=True)
 async def _(e):
     calc = e.builder.article("Calc", text=get_string("calc_1"), buttons=lst)
     await e.answer([calc])
