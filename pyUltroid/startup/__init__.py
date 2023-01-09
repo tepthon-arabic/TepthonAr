@@ -83,17 +83,17 @@ if run_as_module:
     LOGS.info(
         """
                     -----------------------------------
-                            Starting Deployment
+                            بدء تنصيب تيبثون 
                     -----------------------------------
     """
     )
 
     LOGS.info(f"Python version - {platform.python_version()}")
-    LOGS.info(f"py-Ultroid Version - {__pyUltroid__}")
-    LOGS.info(f"Telethon Version - {__version__} [Layer: {LAYER}]")
-    LOGS.info(f"Ultroid Version - {ultroid_version} [{HOSTED_ON}]")
+    LOGS.info(f"اصدار بايثون - {__pyUltroid__}")
+    LOGS.info(f"اصدار تليثون - {__version__} [Layer: {LAYER}]")
+    LOGS.info(f"اصدار تيبثون - {ultroid_version} [{HOSTED_ON}]")
 
     try:
         from safety.tools import *
     except ImportError:
-        LOGS.error("'safety' package not found!")
+        LOGS.error("'safety' الحزمة غير موجودة!")
