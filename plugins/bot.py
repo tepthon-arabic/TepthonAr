@@ -335,7 +335,7 @@ async def _(e):
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://t.me/Tepthone"قناة السورس}">[{قناة السورس}]}</a></strong>',
+            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://t.me/Tepthone{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
