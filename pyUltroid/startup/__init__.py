@@ -88,8 +88,8 @@ if run_as_module:
     """
     )
 
-    LOGS.info(f"Python version - {platform.python_version()}")
-    LOGS.info(f"اصدار بايثون - {__pyUltroid__}")
+    LOGS.info(f"اصدار بايثون - {platform.python_version()}")
+    LOGS.info(f"اصدار تيبثون-py - {__pyUltroid__}")
     LOGS.info(f"اصدار تليثون - {__version__} [Layer: {LAYER}]")
     LOGS.info(f"اصدار تيبثون - {ultroid_version} [{HOSTED_ON}]")
 
