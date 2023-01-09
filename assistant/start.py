@@ -24,8 +24,8 @@ custom_info = True
 if Owner_info_msg is None:
     custom_info = False
     Owner_info_msg = f"""
-**Owner** - {OWNER_NAME}
-**OwnerID** - `{OWNER_ID}`
+**المالك** - {OWNER_NAME}
+**ايدي المالك** - `{OWNER_ID}`
 
 **Message Forwards** - {udB.get_key("PMBOT")}
 
@@ -35,30 +35,30 @@ if Owner_info_msg is None:
 
 _settings = [
     [
-        Button.inline("API Kᴇʏs", data="cbs_apiset"),
-        Button.inline("Pᴍ Bᴏᴛ", data="cbs_chatbot"),
+        Button.inline("مفاتيح API", data="cbs_apiset"),
+        Button.inline("مساء البوت", data="cbs_chatbot"),
     ],
     [
-        Button.inline("Aʟɪᴠᴇ", data="cbs_alvcstm"),
-        Button.inline("PᴍPᴇʀᴍɪᴛ", data="cbs_ppmset"),
+        Button.inline("فحص 📍", data="cbs_alvcstm"),
+        Button.inline("الحماية", data="cbs_ppmset"),
     ],
     [
-        Button.inline("Fᴇᴀᴛᴜʀᴇs", data="cbs_otvars"),
-        Button.inline("VC Sᴏɴɢ Bᴏᴛ", data="cbs_vcb"),
+        Button.inline("الميزات 📜", data="cbs_otvars"),
+        Button.inline("المشغل 🎧", data="cbs_vcb"),
     ],
-    [Button.inline("« Bᴀᴄᴋ", data="mainmenu")],
+    [Button.inline("« الرجوع ", data="mainmenu")],
 ]
 
 _start = [
     [
-        Button.inline("Lᴀɴɢᴜᴀɢᴇ 🌐", data="lang"),
-        Button.inline("Sᴇᴛᴛɪɴɢs ⚙️", data="setter"),
+        Button.inline("اللغة 🌐", data="lang"),
+        Button.inline("الاعدادات ⚙️", data="setter"),
     ],
     [
-        Button.inline("Sᴛᴀᴛs ✨", data="stat"),
-        Button.inline("Bʀᴏᴀᴅᴄᴀsᴛ 📻", data="bcast"),
+        Button.inline("الحالة ✨", data="stat"),
+        Button.inline("راديو 📻", data="bcast"),
     ],
-    [Button.inline("TɪᴍᴇZᴏɴᴇ 🌎", data="tz")],
+    [Button.inline("الوقت 🌎", data="tz")],
 ]
 
 
@@ -68,7 +68,7 @@ async def own(event):
         mention=event.sender.mention, me=inline_mention(ultroid_bot.me)
     )
     if custom_info:
-        msg += "\n\n• Powered by **@TeamUltroid**"
+        msg += "\n\n• مشغل من **@Tepthone**"
     await event.edit(
         msg,
         buttons=[Button.inline("إغلاق", data="closeit")],
