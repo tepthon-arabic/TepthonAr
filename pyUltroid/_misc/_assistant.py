@@ -96,7 +96,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                         description="(c) TeamTepthon",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://telegra.ph/file/1a71be934347067e0d4b3.jpg",
+                            "https://graph.org/file/c0c898f1370417fbfc018.jpg",
                             0,
                             "image/jpeg",
                             [],
@@ -127,7 +127,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                                 title="حدث استثناء غير معالج!",
                                 text=error_text(),
                                 buttons=Button.url(
-                                    "للإبلاغ عن مشكله", "https://t.me/Tepthon_Help"
+                                    "للإبلاغ عن مشكلة", "https://t.me/Tepthon_Help"
                                 ),
                             )
                         ]
