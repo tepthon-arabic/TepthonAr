@@ -21,7 +21,7 @@ from . import LOGS, get_help, get_string, udB, ultroid_bot, ultroid_cmd
 __doc__ = get_help("help_autopic")
 
 
-@ultroid_cmd(pattern="autopic( (.*)|$)")
+@ultroid_cmd(pattern="صورة تلقائية( (.*)|$)")
 async def autopic(e):
     search = e.pattern_match.group(1).strip()
     if udB.get_key("AUTOPIC") and not search:
