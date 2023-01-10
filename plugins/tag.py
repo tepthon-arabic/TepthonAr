@@ -74,3 +74,6 @@ async def _(e):
         if "للبوتات" in okk and bb.bot:
             xx += f"\n{inline_mention(bb)}"
     await e.eor(xx)
+#ترجمة_وتعريب_فريق_ريبثون
+#ترجمة_حمد
+#ترجمة_باقر
