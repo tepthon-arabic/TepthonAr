@@ -53,13 +53,13 @@ async def repify(e):
     await e.eor(REPOMSG)
 
 
-@ultroid_cmd(pattern="ultroid$")
+@ultroid_cmd(pattern="تيبثون$")
 async def useUltroid(rs):
     button = Button.inline("Start >>", "initft_2")
     msg = await asst.send_message(
         LOG_CHANNEL,
         ULTSTRING,
-        file="https://telegra.ph/file/c0c898f1370417fbfc018.jpg",
+        file="https://graph.org/file/c0c898f1370417fbfc018.jpg",
         buttons=button,
     )
     if not (rs.chat_id == LOG_CHANNEL and rs.client._bot):
