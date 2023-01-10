@@ -60,10 +60,10 @@ SUP_BUTTONS = [
 
 @in_pattern(owner=True, func=lambda x: not x.text)
 async def inline_alive(o):
-    TLINK = inline_pic() or "https://telegra.ph/file/c0c898f1370417fbfc018.jpg"
+    TLINK = inline_pic() or "https://graph.org/file/c0c898f1370417fbfc018.jpg"
     MSG = "• **تيبثون العربي •**"
     WEB0 = InputWebDocument(
-        "https://telegra.ph/file/c0c898f1370417fbfc018.jpg", 0, "image/jpg", []
+        "https://graph.org/file/c0c898f1370417fbfc018.jpg", 0, "image/jpg", []
     )
     RES = [
         await o.builder.article(
