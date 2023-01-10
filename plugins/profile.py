@@ -7,20 +7,20 @@
 """
 ✘ Commands Available -
 
-• `{i}setname <first name // last name>`
-    Change your profile name.
+• `{i}وضع اسم <first name // last name>`
+    تغيير اسم الـحـسـاب ♥️🎗️.
 
-• `{i}setbio <bio>`
-    Change your profile bio.
+• `{i}وضع بايو <bio>`
+    تغيير بايو الحساب 📍🖤.
 
-• `{i}setpic <reply to pic>`
-    Change your profile pic.
+• `{i}وضع الصورة <reply to pic>`
+    تغيير صورة الـحـسـاب 🤍.
 
-• `{i}delpfp <n>(optional)`
-    Delete one profile pic, if no value given, else delete n number of pics.
+• `{i}حذف الصورة <n>(optional)`
+    احذف صورة ملف تعريف واحدة ، إذا لم يتم إعطاء قيمة ، فاحذف عدد n من الصور 🥀.
 
-• `{i}poto <username>`
-    Upload the photo of Chat/User if Available.
+• `{i}صورة <username>`
+    قم بتحميل صورة الدردشة / المستخدم إن وجدت 🧸♥️.
 """
 import os
 
@@ -34,21 +34,21 @@ TMP_DOWNLOAD_DIRECTORY = "resources/downloads/"
 # bio changer
 
 
-@ultroid_cmd(pattern="setbio( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="وضع بايو( (.*)|$)", fullsudo=True)
 async def _(ult):
     ok = await ult.eor("...")
     set = ult.pattern_match.group(1).strip()
     try:
         await ult.client(UpdateProfileRequest(about=set))
-        await eod(ok, f"Profile bio changed to\n`{set}`")
+        await eod(ok, f"- تم وضع البايو بنجـاح 🧸♥️\n`{set}`")
     except Exception as ex:
-        await eod(ok, f"Error occured.\n`{str(ex)}`")
+        await eod(ok, f"حدث خـطأ 🛠️.\n`{str(ex)}`")
 
 
 # name changer
 
 
-@ultroid_cmd(pattern="setname ?((.|//)*)", fullsudo=True)
+@ultroid_cmd(pattern="وضع اسم ?((.|//)*)", fullsudo=True)
 async def _(ult):
     ok = await ult.eor("...")
     names = ult.pattern_match.group(1).strip()
@@ -63,18 +63,18 @@ async def _(ult):
                 last_name=last_name,
             ),
         )
-        await eod(ok, f"Name changed to `{names}`")
+        await eod(ok, f"- تم وضـع الأسم بنجاح ♥️🧸 `{names}`")
     except Exception as ex:
-        await eod(ok, f"Error occured.\n`{str(ex)}`")
+        await eod(ok, f"- حدث خطأ 🛠️.\n`{str(ex)}`")
 
 
 # profile pic
 
 
-@ultroid_cmd(pattern="setpic$", fullsudo=True)
+@ultroid_cmd(pattern="وضع الصورة$", fullsudo=True)
 async def _(ult):
     if not ult.is_reply:
-        return await ult.eor("`Reply to a Media..`", time=5)
+        return await ult.eor("`يجب عليك الرد على الصورة 🧸♥️..`", time=5)
     reply_message = await ult.get_reply_message()
     ok = await ult.eor(get_string("com_1"))
     replfile = await reply_message.download_media()
@@ -84,16 +84,16 @@ async def _(ult):
             await ult.client(UploadProfilePhotoRequest(file))
         else:
             await ult.client(UploadProfilePhotoRequest(video=file))
-        await eod(ok, "`My Profile Photo has Successfully Changed !`")
+        await eod(ok, "`- تم وضـع الـصـورة بنجاح ♥️🧸`")
     except Exception as ex:
-        await eod(ok, f"Error occured.\n`{str(ex)}`")
+        await eod(ok, f"حدث خطأ 🛠️.\n`{str(ex)}`")
     os.remove(replfile)
 
 
 # delete profile pic(s)
 
 
-@ultroid_cmd(pattern="delpfp( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="حذف الصورة( (.*)|$)", fullsudo=True)
 async def remove_profilepic(delpfp):
     ok = await eor(delpfp, "`...`")
     group = delpfp.text[8:]
@@ -105,10 +105,10 @@ async def remove_profilepic(delpfp):
         lim = 1
     pfplist = await delpfp.client.get_profile_photos("me", limit=lim)
     await delpfp.client(DeletePhotosRequest(pfplist))
-    await eod(ok, f"`Successfully deleted {len(pfplist)} profile picture(s).`")
+    await eod(ok, f"`- تم حذف الصورة بنجاح ♥️🧸 {len(pfplist)} profile picture(s).`")
 
 
-@ultroid_cmd(pattern="poto( (.*)|$)")
+@ultroid_cmd(pattern="صورة( (.*)|$)")
 async def gpoto(e):
     ult = e.pattern_match.group(1).strip()
     a = await e.eor(get_string("com_1"))
@@ -123,9 +123,9 @@ async def gpoto(e):
             ult = e.chat_id
     okla = await e.client.download_profile_photo(ult)
     if not okla:
-        return await eor(a, "`Pfp Not Found...`")
+        return await eor(a, "`الصورة غير موجودة 🥺...`")
     if not just_dl:
         await a.delete()
         await e.reply(file=okla)
         return os.remove(okla)
-    await a.edit(f"Downloaded pfp to [ `{okla}` ].")
+    await a.edit(f"يحمل الصورة إلى [ `{okla}` ].")
