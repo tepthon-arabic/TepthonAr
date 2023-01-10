@@ -12,7 +12,7 @@ echo "
             ┃┃┃┗┫┏┫┏┫╋┃┃╋┃
             ┗━┻━┻━┻┛┗━┻┻━┛
 
-      Visit @TheUltroid for updates!!
+      تم التنصيب تابع قناة السورس @Tepthone!!
 
 "
 if [ -f .env ] ; then  set -o allexport; source .env; set +o allexport ; fi
