@@ -7,24 +7,24 @@
 """
 ✘ الاوامر المتاحه -
 
-• `{i}mute <reply to msg/ user id>`
-    Mute user in current chat.
+• `{i}كتم <reply to msg/ user id>`
+    كتم الشخص في المحادثة.
 
-• `{i}unmute <reply to msg/ user id>`
-    Unmute user in current chat.
+• `{i}الغاء الكتم <reply to msg/ user id>`
+    الغاء كتم الشخص في المحادثة.
 
-• `{i}dmute <reply to msg/ user id>`
-    Mute user in current chat by deleting msgs.
+• `{i}كتم بالحذف <reply to msg/ user id>`
+    كتم الشخص مع حذف جميع رسائله.
 
-• `{i}undmute <reply to msg/ use id>`
-    Unmute dmuted user in current chat.
+• `{i}الغاء الكتم بالحذف <reply to msg/ use id>`
+    الغاء كتم الشخص بالحذف في المحادثة.
 
-• `{i}tmute <time> <reply to msg/ use id>`
-    s- seconds
-    m- minutes
-    h- hours
-    d- days
-    Mute user in current chat with time.
+• `{i}كتم بالوقت <time> <reply to msg/ use id>`
+    s- الثواني
+    m- الدقائق
+    h- الساعات
+    d- الأيام
+    كتم المستخدم في الدردشة الحالية مع الوقت.
 """
 from telethon import events
 from telethon.utils import get_display_name
@@ -47,7 +47,7 @@ async def watcher(event):
     pattern="كتم( (.*)|$)",
 )
 async def startmute(event):
-    xx = await event.eor("`تم كتم الصوت ...`")
+    xx = await event.eor("`جاري كتم الصوت ♥️🧸...`")
     if input_ := event.pattern_match.group(1).strip():
         try:
             userid = await event.client.parse_id(input_)
@@ -61,7 +61,7 @@ async def startmute(event):
     elif event.is_private:
         userid = event.chat_id
     else:
-        return await xx.eor("`Reply to a user or add their userid.`", time=5)
+        return await xx.eor("`يجب عليك الرد على الشخص أو بأيدي الشخص 🥀🧸.`", time=5)
     chat = await event.get_chat()
     if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None:
         if not chat.admin_rights.delete_messages:
@@ -93,7 +93,7 @@ async def endmute(event):
     if not is_muted(event.chat_id, userid):
         return await xx.eor("`This user is not muted in this chat.`", time=3)
     unmute(event.chat_id, userid)
-    await xx.eor("`تم إلغاء الكتم بنجاح 🤍...`", time=3)
+    await xx.eor("`تم إلغاء الكتم بنجاح 🤍🧸...`", time=3)
 
 
 @ultroid_cmd(
@@ -102,7 +102,7 @@ async def endmute(event):
     manager=True,
 )
 async def _(e):
-    xx = await e.eor("`جاري الكتم 🤫...`")
+    xx = await e.eor("`جاري الكتم 🥀🤫...`")
     huh = e.text.split()
     try:
         tme = huh[1]
@@ -134,7 +134,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` [{name}](tg://user?id={userid}) `in {chat.title} for {tme}`",
+            f"`تم الـكـتـم بنـجـاح 🖤🧸` [{name}](tg://user?id={userid}) `in {chat.title} for {tme}`",
             time=5,
         )
     except BaseException as m:
