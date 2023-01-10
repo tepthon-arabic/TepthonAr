@@ -7,26 +7,26 @@
 """
 ✘ Commands Available -
 
-• `{i}tagall`
-    Tag Top 100 Members of chat.
+• `{i}تاك للكل`
+    تاك لإفضل 100 عضو في المحادثة.
 
-• `{i}tagadmins`
-    Tag Admins of that chat.
+• `{i}تاك للأدمنية`
+    تاك للأدمنية في المحادثة.
 
-• `{i}tagowner`
-    Tag Owner of that chat
+• `{i}تاك للمالك`
+    تاك لمالك المحادثة
 
-• `{i}tagbots`
-    Tag Bots of that chat.
+• `{i}تاك للبوتات`
+    تاك لبوتات المحادثة.
 
-• `{i}tagrec`
-    Tag recently Active Members.
+• `{i}تاك للمتفاعلين`
+    ضع علامة على الأعضاء النشطين مؤخرًا.
 
-• `{i}tagon`
-    Tag online Members(work only if privacy off).
+• `{i}تاك للمتصلين`
+    تاك للأعضاء المتصلين(work only if privacy off).
 
-• `{i}tagoff`
-    Tag Offline Members(work only if privacy off).
+• `{i}تاك للغير متصلين`
+    تاك للأعضاء غير المتصلين(work only if privacy off).
 """
 
 from telethon.tl.types import ChannelParticipantAdmin as admin
@@ -39,7 +39,7 @@ from . import inline_mention, ultroid_cmd
 
 
 @ultroid_cmd(
-    pattern="tag(on|off|all|bots|rec|admins|owner)( (.*)|$)",
+    pattern="تاك(للمتصلين|للغير متصلين|للكل|للبوتات|للمتفاعلين|للأدمنية|للمالك)( (.*)|$)",
     groups_only=True,
 )
 async def _(e):
@@ -55,22 +55,22 @@ async def _(e):
         y = bb.participant
         if isinstance(x, onn):
             o += 1
-            if "on" in okk:
+            if "للمتصلين" in okk:
                 xx += f"\n{inline_mention(bb)}"
         elif isinstance(x, off):
             nn += 1
-            if "off" in okk and not bb.bot and not bb.deleted:
+            if "للغير متصلين" in okk and not bb.bot and not bb.deleted:
                 xx += f"\n{inline_mention(bb)}"
         elif isinstance(x, rec):
             rece += 1
-            if "rec" in okk and not bb.bot and not bb.deleted:
+            if "للمتفاعلين" in okk and not bb.bot and not bb.deleted:
                 xx += f"\n{inline_mention(bb)}"
         if isinstance(y, owner):
             xx += f"\n꧁{inline_mention(bb)}꧂"
         if isinstance(y, admin) and "admin" in okk and not bb.deleted:
             xx += f"\n{inline_mention(bb)}"
-        if "all" in okk and not bb.bot and not bb.deleted:
+        if "للكل" in okk and not bb.bot and not bb.deleted:
             xx += f"\n{inline_mention(bb)}"
-        if "bot" in okk and bb.bot:
+        if "للبوتات" in okk and bb.bot:
             xx += f"\n{inline_mention(bb)}"
     await e.eor(xx)
