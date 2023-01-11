@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ الأوامر المتاحة -
 
-• `{i}addnote <word><reply to a message>`
-    add note in the used chat with replied message and choosen word.
+• `{i}اضف ملاحظة <word><reply to a message>`
+    أضف ملاحظة في الدردشة المستخدمة مع الرسالة التي تم الرد عليها واختيار الكلمة.
 
-• `{i}remnote <word>`
-    Remove the note from used chat.
+• `{i}حذف ملاحظة <word>`
+    حذف الملاحظة في المحادثة.
 
-• `{i}listnote`
-    list all notes.
+• `{i}قائمة الملاحظات`
+    قائمة بجميع الملاحظات ♥ ️🧸.
 
 • Use :
    set notes in group so all can use it.
@@ -32,7 +32,7 @@ from . import events, get_string, mediainfo, udB, ultroid_bot, ultroid_cmd
 from ._inline import something
 
 
-@ultroid_cmd(pattern="addnote( (.*)|$)", admins_only=True)
+@ultroid_cmd(pattern="اضف ملاحظة( (.*)|$)", admins_only=True)
 async def an(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     wt = await e.get_reply_message()
@@ -74,7 +74,7 @@ async def an(e):
     ultroid_bot.add_handler(notes, events.NewMessage())
 
 
-@ultroid_cmd(pattern="remnote( (.*)|$)", admins_only=True)
+@ultroid_cmd(pattern="حذف ملاحظة( (.*)|$)", admins_only=True)
 async def rn(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     chat = e.chat_id
@@ -83,13 +83,13 @@ async def rn(e):
     if wrd.startswith("#"):
         wrd = wrd.replace("#", "")
     rem_note(int(chat), wrd)
-    await e.eor(f"Done Note: `#{wrd}` Removed.")
+    await e.eor(f"تم حذف: `#{wrd}` الملاحظة.")
 
 
-@ultroid_cmd(pattern="listnote$", admins_only=True)
+@ultroid_cmd(pattern="قائمة الملاحظات$", admins_only=True)
 async def lsnote(e):
     if x := list_note(e.chat_id):
-        sd = "Notes Found In This Chats Are\n\n"
+        sd = "الملاحظات الموجودة في هذه الدردشات ♥️🧸\n\n"
         return await e.eor(sd + x)
     await e.eor(get_string("notes_5"))
 
