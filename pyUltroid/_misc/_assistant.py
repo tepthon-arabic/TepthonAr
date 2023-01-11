@@ -34,7 +34,7 @@ IN_BTTS = [
             "‹ قناة السورس ›",
             url="https://t.me/Tepthone",
         ),
-        Button.url("‹ كروب الدعم ›", url="https://t.me/Tepthone_Help"),
+        Button.url("‹ كروب الدعم ›", url="https://t.me/Tepthon_Help"),
     ]
 ]
 
@@ -93,7 +93,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                     await event.builder.article(
                         title="Tepthon Userbot",
                         url="https://t.me/Tepthone",
-                        description="(c) TeamTepthon",
+                        description="لجعل تيبثون من نصيبك !",
                         text=MSG,
                         thumb=InputWebDocument(
                             "https://graph.org/file/c0c898f1370417fbfc018.jpg",
