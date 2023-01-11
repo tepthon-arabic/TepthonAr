@@ -56,7 +56,7 @@ async def igif(e):
         LOGS.info(er)
 
 
-@ultroid_cmd(pattern="عكسه المتحركه$")
+@ultroid_cmd(pattern="عكس المتحركه$")
 async def reverse_gif(event):
     a = await event.get_reply_message()
     if not (a and a.media) and "video" not in mediainfo(a.media):
