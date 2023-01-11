@@ -40,7 +40,7 @@ from . import (
     ULTROID_IMAGES,
     Button,
     Carbon,
-    Telegraph,
+   Telegraph,   
     Var,
     allcmds,
     asst,
@@ -70,21 +70,21 @@ def ULTPIC():
 
 buttons = [
     [
-        Button.url(get_string("bot_3"), "https://t.me/Tepthone"),
-        Button.url(get_string("bot_4"), "t.me/Tepthon_Help"),
+        Button.url(get_string("bot_3"), "https://github.com/rogerpq/Ultroid"),
+        Button.url(get_string("bot_4"), "t.me/Repthon_support"),
     ]
 ]
 
 # Will move to strings
 alive_txt = """
-هذا هو سورس تيبثون العربي
+سورس تيبثون بنجاح
 
-  ◍ الإصدار - {}
-  ◍ اصدار تيبثون - {}
-  ◍ إصدار تليثون - {}
+  ◍ Version - {}
+  ◍ Py-Tepthon - {}
+  ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n⿻┊‌ <b>اصدار تيبثون -><b> <code>{}</code>\n⿻┊‌ <b>تيبثون -></b> <code>{}</code>\n⿻┊‌ <b>البايثون -></b> <code>{}</code>\n⿻┊‌ <b>مدة التشغيل -></b> <code>{}</code>\n⿻┊‌ <b>قناة السورس -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
+in_alive = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
 @callback("فحص")
@@ -130,7 +130,7 @@ async def lol(ult):
         )
 
         if _e := udB.get_key("ALIVE_EMOJI"):
-            als = als.replace("⿻┊‌", _e)
+            als = als.replace("🌀", _e)
     else:
         parse = "md"
         als = (get_string("alive_1")).format(
@@ -145,7 +145,7 @@ async def lol(ult):
         )
 
         if a := udB.get_key("ALIVE_EMOJI"):
-            als = als.replace("✵", a)
+            als = als.replace("⿻┊‌", a)
     if pic:
         try:
             await ult.reply(
@@ -183,7 +183,7 @@ async def lol(ult):
 @ultroid_cmd(pattern="بنك$", chats=[], type=["official", "assistant"])
 async def _(event):
     start = time.time()
-    x = await event.eor("البنك !")
+    x = await event.eor("بنك !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit(get_string("ping").format(end, uptime))
@@ -200,7 +200,7 @@ heroku_api = Var.HEROKU_API
 
 
 @ultroid_cmd(
-    pattern="اعادة تشغيل$",
+    pattern="اعادة تشغيل",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -218,7 +218,7 @@ async def restartbt(ult):
 
 
 @ultroid_cmd(
-    pattern="اغلق$",
+    pattern="shutdown$",
     fullsudo=True,
 )
 async def shutdownbot(ult):
@@ -226,7 +226,7 @@ async def shutdownbot(ult):
 
 
 @ultroid_cmd(
-    pattern="السجلات( (.*)|$)",
+    pattern="لوك( (.*)|$)",
     chats=[],
 )
 async def _(event):
@@ -239,11 +239,11 @@ async def _(event):
         with open(file, "r") as f:
             code = f.read()[-2500:]
         file = await Carbon(
-            file_name="tepthon-logs",
+            file_name="ultroid-logs",
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**سجلات تيبثون.**", file=file)
+        await event.reply("**Ultroid Logs.**", file=file)
     elif opt == "open":
         with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
@@ -288,7 +288,7 @@ async def inline_alive(ult):
                 results = [
                     await builder.document(
                         pic,
-                        title="فحص الانلاين",
+                        title="Inline Alive",
                         description="@Tepthone",
                         parse_mode="html",
                         buttons=buttons,
@@ -323,9 +323,9 @@ async def _(e):
         x = await asst.send_file(
             udB.get_key("LOG_CHANNEL"),
             ULTPIC(),
-            caption="• **تحديث متوفر** •",
+            caption="• **تم تحديث سورس تيبثون بنجــاح** •",
             force_document=False,
-            buttons=Button.inline("Changelogs", data="changes"),
+            buttons=Button.inline("لروئية اللوك", data="changes"),
         )
         Link = x.message_link
         await xx.edit(
@@ -335,19 +335,19 @@ async def _(e):
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://t.me/Tepthone{branch}">[{branch}]</a></strong>',
+            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/rogerpq/Ultroid/tree/{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
 
 
-@callback("تحديث", owner=True)
+@callback("تحديث الان", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
         udB.get_key("LOG_CHANNEL"),
         ULTPIC(),
-        caption="• **تحديث متوفر!!!!!** •",
+        caption="• **تم تحديث تيبثون بنجاح** •",
         force_document=False,
         buttons=Button.inline("Changelogs", data="changes"),
     )
