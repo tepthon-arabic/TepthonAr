@@ -92,7 +92,7 @@ async def ultroid(event):
         kak_uiw = udB.get_key("OFF_START_LOG")
         if not kak_uiw or kak_uiw != True:
             msg = f"{inline_mention(event.sender)} `[{event.sender_id}]` started your [Assistant bot](@{asst.me.username})."
-            buttons = [[Button.inline("Info", "itkkstyo")]]
+            buttons = [[Button.inline("معلومات", "itkkstyo")]]
             if event.sender.username:
                 buttons[0].append(
                     Button.mention(
@@ -112,7 +112,7 @@ async def ultroid(event):
             if udB.get_key("PMBOT"):
                 ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
             await event.reply(
-                f"Hey there {mention}, this is Ultroid Assistant of {me}!\n\n{ok}",
+                f"اهلًا عزيزي {mention}, انا البوت المساعد الخاص بـ {me}!\n\n{ok}",
                 file=udB.get_key("STARTMEDIA"),
                 buttons=[Button.inline("Info.", data="ownerinfo")]
                 if Owner_info_msg
