@@ -7,21 +7,21 @@
 """
 ✘ Commands Available
 
-•`{i}invertgif`
-  Make Gif Inverted(negative).
+•`{i}متحركه معكوسه`
+  جعل المتحركة مقلوبة(negative).
 
-•`{i}bwgif`
-  Make Gif black and white
+•`{i}متحركة سوداء أو بيضاء`
+  صنع متحركة سوداء أو بيضاء
 
-•`{i}rvgif`
-  Reverse a gif
+•`{i}عكس المتحركه`
+  عكس المتحركة
 
-•`{i}vtog`
-  Reply To Video , It will Create Gif
-  Video to Gif
+•`{i}تحويل الفيديو`
+  الرد على الفيديو ، سيتم إنشاء صورة متحركة
+  فيديو إلى متحركة
 
-•`{i}gif <query>`
-   Send video regarding to query.
+•`{i}متحركه <query>`
+   إرسال الفيديو بخصوص الاستعلام.
 """
 import os
 import random
@@ -31,15 +31,15 @@ from datetime import datetime as dt
 from . import HNDLR, LOGS, bash, downloader, get_string, mediainfo, ultroid_cmd
 
 
-@ultroid_cmd(pattern="(bw|invert)gif$")
+@ultroid_cmd(pattern="(سوداء أو بيضاء|معكوسه)متحركه$")
 async def igif(e):
     match = e.pattern_match.group(1).strip()
     a = await e.get_reply_message()
     if not (a and a.media):
-        return await e.eor("`Reply To gif only`", time=5)
+        return await e.eor("`الرد على المتحركه فقط 🧸♥️`", time=5)
     wut = mediainfo(a.media)
     if "gif" not in wut:
-        return await e.eor("`Reply To Gif Only`", time=5)
+        return await e.eor("`الرد على المتحركه فقط 🤍🧸`", time=5)
     xx = await e.eor(get_string("com_1"))
     z = await a.download_media()
     if match == "bw":
@@ -56,11 +56,11 @@ async def igif(e):
         LOGS.info(er)
 
 
-@ultroid_cmd(pattern="rvgif$")
+@ultroid_cmd(pattern="عكسه المتحركه$")
 async def reverse_gif(event):
     a = await event.get_reply_message()
     if not (a and a.media) and "video" not in mediainfo(a.media):
-        return await e.eor("`Reply To Video only`", time=5)
+        return await e.eor("`الرد على الفيديو فقط 🧸🤍`", time=5)
     msg = await event.eor(get_string("com_1"))
     file = await a.download_media()
     await bash(f'ffmpeg -i "{file}" -vf reverse -af areverse reversed.mp4 -y')
@@ -70,7 +70,7 @@ async def reverse_gif(event):
     os.remove("reversed.mp4")
 
 
-@ultroid_cmd(pattern="gif( (.*)|$)")
+@ultroid_cmd(pattern="متحركه( (.*)|$)")
 async def gifs(ult):
     get = ult.pattern_match.group(1).strip()
     xx = random.randint(0, 5)
@@ -96,14 +96,14 @@ async def gifs(ult):
     await m.delete()
 
 
-@ultroid_cmd(pattern="vtog$")
+@ultroid_cmd(pattern="تحويل الفيديو$")
 async def vtogif(e):
     a = await e.get_reply_message()
     if not (a and a.media):
-        return await e.eor("`Reply To video only`", time=5)
+        return await e.eor("`الرد على الفيديو فقط 🤍🧸`", time=5)
     wut = mediainfo(a.media)
     if "video" not in wut:
-        return await e.eor("`Reply To Video Only`", time=5)
+        return await e.eor("`الرد على الفيديو فقط ♥️🧸`", time=5)
     xx = await e.eor(get_string("com_1"))
     dur = a.media.document.attributes[0].duration
     tt = time.time()
