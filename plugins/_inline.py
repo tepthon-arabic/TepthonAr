@@ -82,7 +82,7 @@ async def inline_alive(o):
         RES,
         private=True,
         cache_time=300,
-        switch_pm="👥 ULTROID PORTAL",
+        switch_pm="👥 TEPTHON PORTAL",
         switch_pm_param="start",
     )
 
@@ -398,9 +398,9 @@ async def ibuild(e):
                     results = [
                         await builder.document(
                             _pic,
-                            title="Ultroid Op",
+                            title="Tepthon Op",
                             text=txt,
-                            description="@TeamUltroid",
+                            description="@Tepthone",
                             buttons=btn,
                             link_preview=False,
                         )
@@ -428,7 +428,7 @@ async def ibuild(e):
         except Exception as er:
             LOGS.exception(er)
     result = [
-        await builder.article("Ultroid Op", text=txt, link_preview=False, buttons=btn)
+        await builder.article("Tepthon Op", text=txt, link_preview=False, buttons=btn)
     ]
     await e.answer(result)
 
