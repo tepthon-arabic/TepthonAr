@@ -8,13 +8,13 @@
 from . import *
 
 START = """
-🪅 **Help Menu** 🪅
+🪅 **قائمة المساعدة** 🪅
 
-✘  /start : Check I am Alive or not.
-✘  /help : Get This Message.
-✘  /repo : Get Bot's Repo..
+✘  /start : للتأكد من أن البوت يعمل.
+✘  /help : للمساعدة.
+✘  /repo : رابط السورس..
 
-🧑‍💻 Join **@TeamUltroid**
+🧑‍💻 انضم **@Tepthone**
 """
 
 ADMINTOOLS = """✘ **AdminTools** ✘
