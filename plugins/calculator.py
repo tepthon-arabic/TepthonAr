@@ -59,7 +59,7 @@ async def _(e):
     await e.answer([calc])
 
 
-@callback(re.compile("calc(.*)"), owner=True)
+@callback(re.compile("الحاسبة(.*)"), owner=True)
 async def _(e):
     x = (e.data_match.group(1)).decode()
     user = e.query.user_id
@@ -123,7 +123,7 @@ async def _(e):
         await e.answer(str(x))
 
 
-@callback("recalc", owner=True)
+@callback("اعادة الحساب", owner=True)
 async def _(e):
     m = [
         "AC",
