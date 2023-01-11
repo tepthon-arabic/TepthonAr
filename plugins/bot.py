@@ -190,7 +190,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="الاوامر$",
+    pattern="cmds$",
 )
 async def cmds(event):
     await allcmds(event, Telegraph)
