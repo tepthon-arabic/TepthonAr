@@ -10,15 +10,15 @@ import re
 from . import *
 
 STRINGS = {
-    1: """🎇 **Thanks for Deploying Ultroid Userbot!**
+    1: """🎇 **شكرًا على تنصيب سورس تيبثون العربي!**
 
-• Here, are the Some Basic stuff from, where you can Know, about its Usage.""",
-    2: """🎉** About Ultroid**
+• فيما يلي بعض العناصر الأساسية ، حيث يمكنك معرفة استخدامها.""",
+    2: """🎉** معلومات عن تيبثون العربي**
 
-🧿 Ultroid is Pluggable and powerful Telethon Userbot, made in Python from Scratch. It is Aimed to Increase Security along with Addition of Other Useful Features.
+🧿  تيبثون هو سورس تليثون يوز بوت قوي وقابل للتوصيل ، مصنوع في بايثون من . يهدف إلى زيادة الأمان إلى جانب إضافة ميزات مفيدة أخرى.
 
-❣ Made by **@TeamUltroid**""",
-    3: """**💡• FAQs •**
+❣ مشغل من **@Tepthone**""",
+    3: """**💡• أسئلة وأجوبة •**
 
 -> [Username Tracker](https://t.me/UltroidUpdates/24)
 -> [Keeping Custom Addons Repo](https://t.me/UltroidUpdates/28)
