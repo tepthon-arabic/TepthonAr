@@ -85,12 +85,12 @@ from . import (
 )
 
 
-@ultroid_cmd(pattern="color$")
+@ultroid_cmd(pattern="تلويين$")
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and reply.media):
-        return await event.eor("`Reply To a Black and White Image`")
-    xx = await event.eor("`Coloring image 🎨🖌️...`")
+        return await event.eor("`يجب عليك الرد على صورة بيضاء أو سوداء`")
+    xx = await event.eor("`صورة التلوين 🎨🖌️...`")
     image = await reply.download_media()
     img = cv2.VideoCapture(image)
     ret, frame = img.read()
@@ -115,7 +115,7 @@ async def _(event):
     await xx.delete()
 
 
-@ultroid_cmd(pattern="(grey|blur|negative|danger|mirror|quad|sketch|flip|toon)$")
+@ultroid_cmd(pattern="(رمادي|طمس|نفي|خطر|مرآة|رباعية|رسم|يواجه|تون)$")
 async def ult_tools(event):
     match = event.pattern_match.group(1)
     ureply = await event.get_reply_message()
@@ -188,7 +188,7 @@ async def ult_tools(event):
     os.remove(file)
 
 
-@ultroid_cmd(pattern="csample (.*)")
+@ultroid_cmd(pattern="عينة(.*)")
 async def sampl(ult):
     if color := ult.pattern_match.group(1).strip():
         img = Image.new("RGB", (200, 100), f"{color}")
@@ -197,19 +197,19 @@ async def sampl(ult):
             try:
                 await ult.delete()
                 await ult.client.send_message(
-                    ult.chat_id, f"Colour Sample for `{color}` !", file="csample.png"
+                    ult.chat_id, f"عينة اللون لـ `{color}` !", file="csample.png"
                 )
             except MessageDeleteForbiddenError:
-                await ult.reply(f"Colour Sample for `{color}` !", file="csample.png")
+                await ult.reply(f"عينة اللون لـ `{color}` !", file="csample.png")
         except ChatSendMediaForbiddenError:
-            await ult.eor("Umm! Sending Media is disabled here!")
+            await ult.eor("أم! إرسال الوسائط معطل هنا!")
 
     else:
-        await ult.eor("Wrong Color Name/Hex Code specified!")
+        await ult.eor("اسم اللون خاطئ/Hex الرمز المحدد!")
 
 
 @ultroid_cmd(
-    pattern="blue$",
+    pattern="ازرق$",
 )
 async def ultd(event):
     ureply = await event.get_reply_message()
@@ -244,11 +244,11 @@ async def ultd(event):
     os.remove(ultt)
 
 
-@ultroid_cmd(pattern="border( (.*)|$)")
+@ultroid_cmd(pattern="الحدود( (.*)|$)")
 async def ok(event):
     hm = await event.get_reply_message()
     if not (hm and (hm.photo or hm.sticker)):
-        return await event.eor("`Reply to Sticker or Photo..`")
+        return await event.eor("`يجب عليك الرد على ملصق أو صورة 🧸♥️..`")
     col = event.pattern_match.group(1).strip()
     wh = 20
     if not col:
@@ -272,11 +272,11 @@ async def ok(event):
     await event.delete()
 
 
-@ultroid_cmd(pattern="pixelator( (.*)|$)")
+@ultroid_cmd(pattern="بكسلاتور( (.*)|$)")
 async def pixelator(event):
     reply_message = await event.get_reply_message()
     if not (reply_message and reply_message.photo):
-        return await event.eor("`Reply to a photo`")
+        return await event.eor("`يجب عليك الرد على صورة ♥️🧸`")
     hw = 50
     try:
         hw = int(event.pattern_match.group(1).strip())
