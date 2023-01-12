@@ -84,7 +84,7 @@ alive_txt = """
   ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
+ALIVE_TEXT = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
 @callback("فحص")
