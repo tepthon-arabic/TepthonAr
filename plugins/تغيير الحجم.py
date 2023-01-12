@@ -31,7 +31,7 @@ async def size(e):
         img = await r.download_media()
     im = Image.open(img)
     x, y = im.size
-    await k.edit(f"أبعاد هذه الصورة\n`{x} x {y}`")
+    await k.edit(f"أبعاد هذه الصورة 🧸♥️\n`{x} x {y}`")
     os.remove(img)
 
 
