@@ -126,7 +126,7 @@ async def leave(ult):
 async def date(event):
     m = dt.now().month
     y = dt.now().year
-    d = dt.now().strftime("التاريخ - %B %d, %Y\nTime- %H:%M:%S")
+    d = dt.now().strftime("التاريخ - %B %d, %Y\nالساعة- %H:%M:%S")
     k = calendar.month(y, m)
     await event.eor(f"`{k}\n\n{d}`")
 
@@ -146,7 +146,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="الحالة$",
+    pattern="الاحصائيات$",
 )
 async def stats(
     event: NewMessage.Event,
@@ -226,7 +226,7 @@ async def _(event):
         input_str = event.text.split(maxsplit=1)[1]
     except IndexError:
         input_str = None
-    xx = await event.eor("` 《 جاري اللاصق ♥️🧸... 》 `")
+    xx = await event.eor("` 《 جاري اللصق ♥️🧸... 》 `")
     downloaded_file_name = None
     if input_str:
         message = input_str
@@ -246,7 +246,7 @@ async def _(event):
         message = None
     if not message:
         return await xx.eor(
-            "`Reply to a Message/Document or Give me Some Text !`", time=5
+            "`قم بالرد على رسالة / مستند أو أعطني بعض النص ! ♥️🧸`", time=5
         )
     done, key = await get_paste(message)
     if not done:
@@ -254,7 +254,7 @@ async def _(event):
     link = f"https://spaceb.in/{key}"
     raw = f"https://spaceb.in/api/v1/documents/{key}/raw"
     reply_text = (
-        f"• **Pasted to SpaceBin :** [Space]({link})\n• **Raw Url :** : [Raw]({raw})"
+        f"• **تم لصقه في SpaceBin :** [Space]({link})\n• **Raw Url :** : [Raw]({raw})"
     )
     try:
         if event.client._bot:
@@ -316,7 +316,7 @@ async def _(event):
         first_name = first_name.replace("\u2060", "")
     last_name = user.last_name
     last_name = (
-        last_name.replace("\u2060", "") if last_name else ("Last Name not found")
+        last_name.replace("\u2060", "") if last_name else ("الاسم الأخير غير موجود")
     )
     user_bio = full_user.about
     if user_bio is not None:
@@ -327,18 +327,18 @@ async def _(event):
     else:
         dc_id = "Need a Profile Picture to check this"
     caption = """<b>Exᴛʀᴀᴄᴛᴇᴅ Dᴀᴛᴀ Fʀᴏᴍ Tᴇʟᴇɢʀᴀᴍ's Dᴀᴛᴀʙᴀsᴇ<b>
-<b>••Tᴇʟᴇɢʀᴀᴍ ID</b>: <code>{}</code>
-<b>••Pᴇʀᴍᴀɴᴇɴᴛ Lɪɴᴋ</b>: <a href='tg://user?id={}'>Click Here</a>
-<b>••Fɪʀsᴛ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Sᴇᴄᴏɴᴅ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Bɪᴏ</b>: <code>{}</code>
-<b>••Dᴄ ID</b>: <code>{}</code>
-<b>••Nᴏ. Oғ PғPs</b> : <code>{}</code>
-<b>••Is Rᴇsᴛʀɪᴄᴛᴇᴅ</b>: <code>{}</code>
-<b>••Vᴇʀɪғɪᴇᴅ</b>: <code>{}</code>
-<b>••Is Pʀᴇᴍɪᴜᴍ</b>: <code>{}</code>
-<b>••Is A Bᴏᴛ</b>: <code>{}</code>
-<b>••Gʀᴏᴜᴘs Iɴ Cᴏᴍᴍᴏɴ</b>: <code>{}</code>
+<b>••الايدي</b>: <code>{}</code>
+<b>••رابط دائم</b>: <a href='tg://user?id={}'>Click Here</a>
+<b>••الاسم الاول</b>: <code>{}</code>
+<b>••الاسم الثاني</b>: <code>{}</code>
+<b>••البايو</b>: <code>{}</code>
+<b>••Dc ايدي</b>: <code>{}</code>
+<b>••لا. OFPFPS</b> : <code>{}</code>
+<b>••محصور</b>: <code>{}</code>
+<b>••موثق</b>: <code>{}</code>
+<b>••برايم</b>: <code>{}</code>
+<b>••هذا البوت</b>: <code>{}</code>
+<b>••المجموعات المشتركة</b>: <code>{}</code>
 """.format(
         user_id,
         user_id,
@@ -354,8 +354,8 @@ async def _(event):
         common_chats,
     )
     if chk := is_gbanned(user_id):
-        caption += f"""<b>••Gʟᴏʙᴀʟʟʏ Bᴀɴɴᴇᴅ</b>: <code>True</code>
-<b>••Rᴇᴀsᴏɴ</b>: <code>{chk}</code>"""
+        caption += f"""<b>••محظور عالميًا</b>: <code>True</code>
+<b>••السبب</b>: <code>{chk}</code>"""
     await event.client.send_message(
         event.chat_id,
         caption,
@@ -385,7 +385,7 @@ async def _(ult):
                         fwd_limit=1000000,
                     ),
                 )
-                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` to `{ult.chat_id}`")
+                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` إلى `{ult.chat_id}`")
             except Exception as e:
                 await xx.edit(str(e))
     else:
@@ -397,23 +397,23 @@ async def _(ult):
                         users=[await ult.client.parse_id(user_id)],
                     ),
                 )
-                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` to `{ult.chat_id}`")
+                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` إلى `{ult.chat_id}`")
             except UserBotError:
                 await xx.edit(
-                    f"Bots can only be added as Admins in Channel.\nBetter Use `{HNDLR}promote {user_id}`"
+                    f"لا يمكن إضافة البوتات إلا كمسؤولين في القناة.\n استخدام أفضل `{HNDLR}يرقي {user_id}`"
                 )
             except Exception as e:
                 await xx.edit(str(e))
 
 
 @ultroid_cmd(
-    pattern="rmbg($| (.*))",
+    pattern="حذف bg($| (.*))",
 )
 async def abs_rmbg(event):
     RMBG_API = udB.get_key("RMBG_API")
     if not RMBG_API:
         return await event.eor(
-            "احصل على ايبي كي من [here](https://www.remove.bg/) for this plugin to work.",
+            "احصل على ايبي كي من [here](https://www.remove.bg/) لهذا البرنامج المساعد للعمل.",
         )
     match = event.pattern_match.group(1).strip()
     reply = await event.get_reply_message()
@@ -498,7 +498,7 @@ async def telegraphcmd(event):
         os.remove(getit)
     makeit = Telegraph.create_page(title=match, content=[content])
     await xx.eor(
-        f"Pasted to Telegraph : [Telegraph]({makeit['url']})", link_preview=False
+        f"تم لصقه في التلكراف : [رابط التلكراف]({makeit['url']})", link_preview=False
     )
 
 
@@ -554,7 +554,7 @@ async def sugg(event):
         if reply.text and len(reply.text) < 35:
             text = reply.text
         else:
-            text = "Do you Agree to Replied Suggestion ?"
+            text = "هل توافق على الرد على الاقتراح ?"
     reply_to = event.reply_to_msg_id if event.is_reply else event.id
     try:
         await event.client.send_file(
@@ -569,7 +569,7 @@ async def sugg(event):
             reply_to=reply_to,
         )
     except Exception as e:
-        return await eod(event, f"`Oops, you can't send polls here!\n\n{e}`")
+        return await eod(event, f"`عفوًا ، لا يمكنك إرسال استطلاعات الرأي هنا!\n\n{e}`")
     await event.delete()
 
 
@@ -675,7 +675,7 @@ async def thumb_dl(event):
 async def get_restriced_msg(event):
     match = event.pattern_match.group(1).strip()
     if not match:
-        await event.eor("`Please provide a link!`", time=5)
+        await event.eor("`الرجاء توفير ارتباط!`", time=5)
         return
     xx = await event.eor(get_string("com_1"))
     chat, msg = get_chat_and_msgid(match)
@@ -686,7 +686,7 @@ async def get_restriced_msg(event):
     try:
         message = await event.client.get_messages(chat, ids=msg)
     except BaseException as er:
-        return await event.eor(f"**ERROR**\n`{er}`")
+        return await event.eor(f"**خطأ**\n`{er}`")
     try:
         await event.client.send_message(event.chat_id, message)
         await xx.try_delete()
