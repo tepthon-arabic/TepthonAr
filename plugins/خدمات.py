@@ -114,9 +114,9 @@ TMP_DOWNLOAD_DIRECTORY = "resources/downloads/"
 _copied_msg = {}
 
 
-@ultroid_cmd(pattern="انقر أنا$", fullsudo=True)
+@ultroid_cmd(pattern="غادر$", fullsudo=True)
 async def leave(ult):
-    await ult.eor(f"`{ult.client.me.first_name} has left this group, bye!!.`")
+    await ult.eor(f"`{ult.client.me.first_name} سأغادر من المجموعة مع السلامة 🚶!!.`")
     await ult.client(LeaveChannelRequest(ult.chat_id))
 
 
@@ -126,7 +126,7 @@ async def leave(ult):
 async def date(event):
     m = dt.now().month
     y = dt.now().year
-    d = dt.now().strftime("Date - %B %d, %Y\nTime- %H:%M:%S")
+    d = dt.now().strftime("التاريخ - %B %d, %Y\nTime- %H:%M:%S")
     k = calendar.month(y, m)
     await event.eor(f"`{k}\n\n{d}`")
 
@@ -137,7 +137,7 @@ async def date(event):
 async def _(event):
     result = await event.client(GetAdminedPublicChannelsRequest())
     if not result.chats:
-        return await event.eor("`No username Reserved`")
+        return await event.eor("`لا يوجد اسم مستخدم محجوز 🧸 ♥ ️`")
     output_str = "".join(
         f"- {channel_obj.title} @{channel_obj.username} \n"
         for channel_obj in result.chats
@@ -151,7 +151,7 @@ async def _(event):
 async def stats(
     event: NewMessage.Event,
 ):
-    ok = await event.eor("`جمع احصائيات...`")
+    ok = await event.eor("`جمع الاحصائيات...`")
     start_time = time.time()
     private_chats = 0
     bots = 0
@@ -200,33 +200,33 @@ async def stats(
     except BaseException:
         sp_count = 0
     full_name = inline_mention(event.client.me)
-    response = f"🔸 **Stats for {full_name}** \n\n"
-    response += f"**Private Chats:** {private_chats} \n"
-    response += f"**  •• **`Users: {private_chats - bots}` \n"
-    response += f"**  •• **`Bots: {bots}` \n"
-    response += f"**Groups:** {groups} \n"
-    response += f"**Channels:** {broadcast_channels} \n"
-    response += f"**Admin in Groups:** {admin_in_groups} \n"
-    response += f"**  •• **`Creator: {creator_in_groups}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_groups - creator_in_groups}` \n"
-    response += f"**Admin in Channels:** {admin_in_broadcast_channels} \n"
-    response += f"**  •• **`Creator: {creator_in_channels}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_broadcast_channels - creator_in_channels}` \n"
-    response += f"**Unread:** {unread} \n"
-    response += f"**Unread Mentions:** {unread_mentions} \n"
-    response += f"**Blocked Users:** {ct}\n"
-    response += f"**Total Stickers Pack Installed :** `{sp_count}`\n\n"
+    response = f"🔸 **الاحصائيات {full_name}** \n\n"
+    response += f"**المحادثات الخاصة:** {private_chats} \n"
+    response += f"**  •• **`المستخدمين: {private_chats - bots}` \n"
+    response += f"**  •• **`البوتات: {bots}` \n"
+    response += f"**الكروبات:** {groups} \n"
+    response += f"**القنوات:** {broadcast_channels} \n"
+    response += f"**ادمن في الكروبات:** {admin_in_groups} \n"
+    response += f"**  •• **`مالك الكروبات: {creator_in_groups}` \n"
+    response += f"**  •• **`حقوق المسؤول: {admin_in_groups - creator_in_groups}` \n"
+    response += f"**ادمن في القنوات:** {admin_in_broadcast_channels} \n"
+    response += f"**  •• **`مالك القنوات: {creator_in_channels}` \n"
+    response += f"**  •• **`حقوق المسؤول: {admin_in_broadcast_channels - creator_in_channels}` \n"
+    response += f"**غير مقروء:** {unread} \n"
+    response += f"**الإشارات غير المقروءة:** {unread_mentions} \n"
+    response += f"**المستخدمين المحظورين:** {ct}\n"
+    response += f"**تم تثبيت حزمة الملصقات الإجمالية :** `{sp_count}`\n\n"
     response += f"**__It Took:__** {stop_time:.02f}s \n"
     await ok.edit(response)
 
 
-@ultroid_cmd(pattern="paste( (.*)|$)", manager=True, allow_all=True)
+@ultroid_cmd(pattern="لصق( (.*)|$)", manager=True, allow_all=True)
 async def _(event):
     try:
         input_str = event.text.split(maxsplit=1)[1]
     except IndexError:
         input_str = None
-    xx = await event.eor("` 《 Pasting... 》 `")
+    xx = await event.eor("` 《 جاري اللاصق ♥️🧸... 》 `")
     downloaded_file_name = None
     if input_str:
         message = input_str
@@ -268,7 +268,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="info( (.*)|$)",
+    pattern="المعلومات( (.*)|$)",
     manager=True,
 )
 async def _(event):
@@ -286,13 +286,13 @@ async def _(event):
     try:
         _ = await event.client.get_entity(user)
     except Exception as er:
-        return await xx.edit(f"**ERROR :** {er}")
+        return await xx.edit(f"**خطأ :** {er}")
     if not isinstance(_, User):
         try:
             peer = get_peer_id(_)
             photo, capt = await get_chat_info(_, event)
             if is_gbanned(peer):
-                capt += "\n•<b> Is Gbanned:</b> <code>True</code>"
+                capt += "\n•<b> هو غبانيد:</b> <code>True</code>"
             if not photo:
                 return await xx.eor(capt, parse_mode="html")
             await event.client.send_message(
@@ -300,12 +300,12 @@ async def _(event):
             )
             await xx.delete()
         except Exception as er:
-            await event.eor("**ERROR ON CHATINFO**\n" + str(er))
+            await event.eor("**خطأ في معلومات الكروب**\n" + str(er))
         return
     try:
         full_user = (await event.client(GetFullUserRequest(user))).full_user
     except Exception as er:
-        return await xx.edit(f"ERROR : {er}")
+        return await xx.edit(f"خطأ : {er}")
     user = _
     user_photos = (
         await event.client.get_profile_photos(user.id, limit=0)
@@ -369,7 +369,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="invite( (.*)|$)",
+    pattern="دعوة( (.*)|$)",
     groups_only=True,
 )
 async def _(ult):
@@ -385,7 +385,7 @@ async def _(ult):
                         fwd_limit=1000000,
                     ),
                 )
-                await xx.edit(f"Successfully invited `{user_id}` to `{ult.chat_id}`")
+                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` to `{ult.chat_id}`")
             except Exception as e:
                 await xx.edit(str(e))
     else:
@@ -397,7 +397,7 @@ async def _(ult):
                         users=[await ult.client.parse_id(user_id)],
                     ),
                 )
-                await xx.edit(f"Successfully invited `{user_id}` to `{ult.chat_id}`")
+                await xx.edit(f"تمت الدعوة بنجاح ♥️🧸 `{user_id}` to `{ult.chat_id}`")
             except UserBotError:
                 await xx.edit(
                     f"Bots can only be added as Admins in Channel.\nBetter Use `{HNDLR}promote {user_id}`"
@@ -413,7 +413,7 @@ async def abs_rmbg(event):
     RMBG_API = udB.get_key("RMBG_API")
     if not RMBG_API:
         return await event.eor(
-            "Get your API key from [here](https://www.remove.bg/) for this plugin to work.",
+            "احصل على ايبي كي من [here](https://www.remove.bg/) for this plugin to work.",
         )
     match = event.pattern_match.group(1).strip()
     reply = await event.get_reply_message()
@@ -426,7 +426,7 @@ async def abs_rmbg(event):
             dl = await reply.download_media()
     else:
         return await eod(
-            event, f"Use `{HNDLR}rmbg` as reply to a pic to remove its background."
+            event, f"استخدم `{HNDLR}rmbg` as reply to a pic to remove its background."
         )
     if not (dl and dl.endswith(("webp", "jpg", "png", "jpeg"))):
         os.remove(dl)
@@ -436,14 +436,14 @@ async def abs_rmbg(event):
         Image.open(dl).save(file)
         os.remove(dl)
         dl = file
-    xx = await event.eor("`Sending to remove.bg`")
+    xx = await event.eor("`إرسال إلى remove.bg`")
     dn, out = await ReTrieveFile(dl)
     os.remove(dl)
     if not dn:
         dr = out["errors"][0]
         de = dr.get("detail", "")
         return await xx.edit(
-            f"**ERROR ~** `{dr['title']}`,\n`{de}`",
+            f"**خطأ ~** `{dr['title']}`,\n`{de}`",
         )
     zz = Image.open(out)
     if zz.mode != "RGB":
@@ -463,14 +463,14 @@ async def abs_rmbg(event):
 
 
 @ultroid_cmd(
-    pattern="telegraph( (.*)|$)",
+    pattern="تلكراف ميديا( (.*)|$)",
 )
 async def telegraphcmd(event):
     xx = await event.eor(get_string("com_1"))
     match = event.pattern_match.group(1).strip() or "Ultroid"
     reply = await event.get_reply_message()
     if not reply:
-        return await xx.eor("`Reply to Message.`")
+        return await xx.eor("`يجب عليك الرد على الصوره 🧸♥️.`")
     if not reply.media and reply.message:
         content = reply.message
     else:
@@ -489,7 +489,7 @@ async def telegraphcmd(event):
         if "document" not in dar:
             try:
                 nn = f"https://graph.org{uf(getit)[0]}"
-                amsg = f"Uploaded to [Telegraph]({nn}) !"
+                amsg = f"تم رفعه على تلكراف ♥️🧸 [Telegraph]({nn}) !"
             except Exception as e:
                 amsg = f"Error : {e}"
             os.remove(getit)
@@ -502,7 +502,7 @@ async def telegraphcmd(event):
     )
 
 
-@ultroid_cmd(pattern="json( (.*)|$)")
+@ultroid_cmd(pattern="نسخة( (.*)|$)")
 async def _(event):
     reply_to_id = None
     match = event.pattern_match.group(1).strip()
@@ -537,7 +537,7 @@ async def _(event):
         await event.eor(f"```{msg or None}```")
 
 
-@ultroid_cmd(pattern="suggest( (.*)|$)", manager=True)
+@ultroid_cmd(pattern="اقتراح( (.*)|$)", manager=True)
 async def sugg(event):
     sll = event.text.split(maxsplit=1)
     try:
@@ -573,7 +573,7 @@ async def sugg(event):
     await event.delete()
 
 
-@ultroid_cmd(pattern="ipinfo( (.*)|$)")
+@ultroid_cmd(pattern="معلومات الايبي( (.*)|$)")
 async def ipinfo(event):
     ip = event.text.split()
     ipaddr = ""
@@ -596,15 +596,15 @@ async def ipinfo(event):
         await eor(
             event,
             """
-**IP Details Fetched.**
+**تم جلب تفاصيل ايبي.**
 
-**IP:** `{}`
-**City:** `{}`
-**Region:** `{}`
-**Country:** `{}`
-**Co-ordinates:** `{}`
-**Postal Code:** `{}`
-**Time Zone:** `{}`
+**ايبي:** `{}`
+**المدينة:** `{}`
+**المنطقة:** `{}`
+**الدولة:** `{}`
+**ينسق:** `{}`
+**الرمز البريدي:** `{}`
+**وحدة زمنية:** `{}`
 """.format(
                 ip,
                 city,
@@ -622,7 +622,7 @@ async def ipinfo(event):
 
 
 @ultroid_cmd(
-    pattern="cpy$",
+    pattern="نسخ$",
 )
 async def copp(event):
     msg = await event.get_reply_message()
@@ -632,13 +632,13 @@ async def copp(event):
     await event.eor(f"Copied. Use `{HNDLR}pst` to paste!", time=10)
 
 
-@asst_cmd(pattern="pst$")
+@asst_cmd(pattern="لصق$")
 async def pepsodent(event):
     await toothpaste(event)
 
 
 @ultroid_cmd(
-    pattern="pst$",
+    pattern="لصق$",
 )
 async def colgate(event):
     await toothpaste(event)
@@ -650,7 +650,7 @@ async def toothpaste(event):
     except KeyError:
         return await eod(
             event,
-            f"Nothing was copied! Use `{HNDLR}cpy` as reply to a message first!",
+            f"لم يتم نسخ أي شيء! Use `{HNDLR}cpy` كرد على رسالة أولاً!",
         )
     except Exception as ex:
         return await event.eor(str(ex), time=5)
@@ -701,9 +701,9 @@ async def get_restriced_msg(event):
             message.document,
             show_progress=True,
             event=xx,
-            message=f"Downloading {message.file.name}...",
+            message=f"جاري التحميل ♥️🧸 {message.file.name}...",
         )
-        await xx.edit("`Uploading...`")
+        await xx.edit("`تحميل 🧸♥️...`")
         uploaded, _ = await event.client.fast_uploader(
             media.name, event=xx, show_progress=True, to_delete=True
         )
