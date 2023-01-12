@@ -87,7 +87,7 @@ alive_txt = """
 in_alive = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
-@callback("افحص")
+@callback("فحص")
 async def alive(event):
     text = alive_txt.format(ultroid_version, UltVer, __version__)
     await event.answer(text, alert=True)
@@ -200,7 +200,7 @@ heroku_api = Var.HEROKU_API
 
 
 @ultroid_cmd(
-    pattern="اعادة تشغيل",
+    pattern="تحديث الان",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -218,7 +218,7 @@ async def restartbt(ult):
 
 
 @ultroid_cmd(
-    pattern="shutdown$",
+    pattern="اغلق$",
     fullsudo=True,
 )
 async def shutdownbot(ult):
@@ -259,7 +259,7 @@ async def inline_alive(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
+    header = udB.get_key("ALIVE_TEXT")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -305,7 +305,7 @@ async def inline_alive(ult):
     await ult.answer(result)
 
 
-@ultroid_cmd(pattern="تحديث( (.*)|$)")
+@ultroid_cmd(pattern="noinatall( (.*)|$)")
 async def _(e):
     xx = await e.eor(get_string("upd_1"))
     if e.pattern_match.group(1).strip() and (
