@@ -14,7 +14,7 @@ COPY installer.sh .
 RUN bash installer.sh
 
 # changing workdir
-WORKDIR "/root/TeamUltroid"
+WORKDIR "/root/tepthon-arabic"
 
 # start the bot.
 CMD ["bash", "startup"]
