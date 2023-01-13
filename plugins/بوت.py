@@ -112,7 +112,7 @@ async def lol(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
+    header = udB.get_key("ALIVE_TEXT")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -133,7 +133,7 @@ async def lol(ult):
             als = als.replace("🌀", _e)
     else:
         parse = "md"
-        als = (get_string("alive_1")).format(
+        als = (get_string("ALIVE_TEXT")).format(
             header,
             OWNER_NAME,
             f"{ultroid_version} [{HOSTED_ON}]",
@@ -190,7 +190,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="cmds$",
+    pattern="nonoooo$",
 )
 async def cmds(event):
     await allcmds(event, Telegraph)
@@ -200,7 +200,7 @@ heroku_api = Var.HEROKU_API
 
 
 @ultroid_cmd(
-    pattern="تحديث الان",
+    pattern="تحديث السورس",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -305,7 +305,7 @@ async def inline_alive(ult):
     await ult.answer(result)
 
 
-@ultroid_cmd(pattern="noinatall( (.*)|$)")
+@ultroid_cmd(pattern="تحديث( (.*)|$)")
 async def _(e):
     xx = await e.eor(get_string("upd_1"))
     if e.pattern_match.group(1).strip() and (
@@ -341,7 +341,7 @@ async def _(e):
         )
 
 
-@callback("تحديث الان", owner=True)
+@callback("تحديث", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
