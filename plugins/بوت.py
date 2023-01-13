@@ -87,14 +87,14 @@ alive_txt = """
 ALIVE_TEXT = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
-@callback("فحص")
+@callback("alive")
 async def alive(event):
     text = alive_txt.format(ultroid_version, UltVer, __version__)
     await event.answer(text, alert=True)
 
 
 @ultroid_cmd(
-    pattern="فحص( (.*)|$)",
+    pattern="alive( (.*)|$)",
 )
 async def lol(ult):
     match = ult.pattern_match.group(1).strip()
@@ -253,7 +253,7 @@ async def _(event):
     await event.try_delete()
 
 
-@in_pattern("فحص", owner=True)
+@in_pattern("alive", owner=True)
 async def inline_alive(ult):
     pic = udB.get_key("ALIVE_PIC")
     if isinstance(pic, list):
