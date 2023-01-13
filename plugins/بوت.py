@@ -76,7 +76,7 @@ buttons = [
 ]
 
 # Will move to strings
-alive_1 = """
+alive_txt = """
 سورس تيبثون بنجاح
 
   ◍ Version - {}
