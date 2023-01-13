@@ -133,7 +133,7 @@ async def lol(ult):
             als = als.replace("🌀", _e)
     else:
         parse = "md"
-        als = (get_string("ALIVE_TEXT")).format(
+        als = (get_string("alive_1")).format(
             header,
             OWNER_NAME,
             f"{ultroid_version} [{HOSTED_ON}]",
