@@ -76,7 +76,7 @@ buttons = [
 ]
 
 # Will move to strings
-alive_txt = """
+alive_1 = """
 سورس تيبثون بنجاح
 
   ◍ Version - {}
@@ -112,7 +112,7 @@ async def lol(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT")
+    header = udB.get_key("alive_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
