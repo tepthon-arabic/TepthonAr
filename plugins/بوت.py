@@ -112,7 +112,7 @@ async def lol(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("alive_txt")
+    header = udB.get_key("alive_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -133,7 +133,7 @@ async def lol(ult):
             als = als.replace("🌀", _e)
     else:
         parse = "md"
-        als = (get_string("alive_txt")).format(
+        als = (get_string("alive_1")).format(
             header,
             OWNER_NAME,
             f"{ultroid_version} [{HOSTED_ON}]",
