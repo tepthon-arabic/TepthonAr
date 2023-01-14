@@ -218,7 +218,7 @@ async def restartbt(ult):
 
 
 @ultroid_cmd(
-    pattern="shutdown$",
+    pattern="ايقاف$",
     fullsudo=True,
 )
 async def shutdownbot(ult):
@@ -329,13 +329,13 @@ async def _(e):
         )
         Link = x.message_link
         await xx.edit(
-            f'<strong><a href="{Link}">[ChangeLogs]</a></strong>',
+            f'<strong><a href="{Link}">[سجل التغيير]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/rogerpq/Ultroid/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://t.me/Tepthone{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
