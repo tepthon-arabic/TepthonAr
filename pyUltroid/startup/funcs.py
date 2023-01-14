@@ -146,13 +146,13 @@ async def autobot():
     if udB.get_key("BOT_TOKEN"):
         return
     await ultroid_bot.start()
-    LOGS.info("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
+    LOGS.info("صنع بوت تلغرام لك في @BotFather, يرجى الانتظار 🧸♥️")
     who = ultroid_bot.me
     name = who.first_name + "'s Bot"
     if who.username:
         username = who.username + "_bot"
     else:
-        username = "ultroid_" + (str(who.id))[5:] + "_bot"
+        username = "Tepthon_" + (str(who.id))[5:] + "_bot"
     bf = "@BotFather"
     await ultroid_bot(UnblockRequest(bf))
     await ultroid_bot.send_message(bf, "/cancel")
@@ -162,7 +162,7 @@ async def autobot():
     isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if isdone.startswith("That I cannot do.") or "20 bots" in isdone:
         LOGS.critical(
-            "Please make a Bot from @BotFather and add it's token in BOT_TOKEN, as an env var and restart me."
+            "الرجاء عمل بوت من @BotFather وأضف الرمز المميز فيه BOT_TOKEN, as an env var and restart me."
         )
         import sys
 
