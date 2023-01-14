@@ -8,7 +8,7 @@
 ✘ Commands Available -
 
 • `{i}لوكو <text>`
-   قم بإنشاء شعار للنص المحدد
+   أنشئ شعارًا للنص المحدد
    أو الرد على الصورة ، لكتابة النص الخاص بك عليها.
    أو الرد على ملف الخط ، للكتابة بهذا الخط.
 
@@ -30,7 +30,7 @@ async def logo_gen(event):
     xx = await event.eor(get_string("com_1"))
     name = event.pattern_match.group(1).strip()
     if not name:
-        return await xx.eor("`أعط اسما أيضا 🧸 ♥ ️!`", time=5)
+        return await xx.eor("`أعط اسما أيضا ♥🧸!`", time=5)
     bg_, font_ = None, None
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
@@ -51,7 +51,7 @@ async def logo_gen(event):
         else:
             pics = []
             async for i in event.client.iter_messages(
-                "https://graph.org/file/bdf66aa4c558830a5e39b.jpg", filter=InputMessagesFilterPhotos
+                "@UltroidLogos", filter=InputMessagesFilterPhotos
             ):
                 pics.append(i)
             id_ = random.choice(pics)
@@ -78,7 +78,7 @@ async def logo_gen(event):
     await event.client.send_file(
         event.chat_id,
         file=name,
-        caption=f"الوكو من [{OWNER_NAME}](tg://user?id={OWNER_ID})",
+        caption=f"لوكو من [{OWNER_NAME}](tg://user?id={OWNER_ID})",
         force_document=True,
     )
     os.remove(name)
