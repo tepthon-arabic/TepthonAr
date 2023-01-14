@@ -84,10 +84,10 @@ alive_txt = """
   ◍ Telethon - {}
 """
 
-ALIVE_TEXT = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
+in_alive = "{}\n\n🌀 <b>Tepthon Version -><b> <code>{}</code>\n🌀 <b>PyTepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>انضم @Tepthone</b>"
 
 
-@callback("فحص")
+@callback("افحص")
 async def alive(event):
     text = alive_txt.format(ultroid_version, UltVer, __version__)
     await event.answer(text, alert=True)
@@ -112,7 +112,7 @@ async def lol(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("alive_1")
+    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -190,7 +190,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="nonoooo$",
+    pattern="cmds$",
 )
 async def cmds(event):
     await allcmds(event, Telegraph)
@@ -218,7 +218,7 @@ async def restartbt(ult):
 
 
 @ultroid_cmd(
-    pattern="اغلق$",
+    pattern="shutdown$",
     fullsudo=True,
 )
 async def shutdownbot(ult):
@@ -243,7 +243,7 @@ async def _(event):
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**Ultroid Logs.**", file=file)
+        await event.reply("**تيبثون-لوك.**", file=file)
     elif opt == "open":
         with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
@@ -259,7 +259,7 @@ async def inline_alive(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT")
+    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -341,7 +341,7 @@ async def _(e):
         )
 
 
-@callback("تحديث", owner=True)
+@callback("تحديث الان", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
