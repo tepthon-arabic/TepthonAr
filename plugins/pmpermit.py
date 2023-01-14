@@ -8,10 +8,10 @@
 ✘ Commands Available -
 
 • `{i}a` or `{i}approve`
-    Approve someone to PM.
+    يعتمد someone to PM.
 
 • `{i}da` or `{i}disapprove`
-    Disapprove someone to PM.
+    الرفض someone to PM.
 
 • `{i}block`
     Block someone.
@@ -23,9 +23,9 @@
     Stop logging messages from the user.
 
 • `{i}logpm`
-    Start logging messages from the user.
+    ابدأ في تسجيل الرسائل من المستخدم.
 
-• `{i}startarchive`
+• `{i}البداية`
     Archive new PMs.
 
 • `{i}stoparchive`
@@ -74,7 +74,7 @@ UND = get_string("pmperm_1")
 UNS = get_string("pmperm_2")
 NO_REPLY = get_string("pmperm_3")
 
-UNAPPROVED_MSG = "**PMSecurity of {ON}!**\n\n{UND}\n\nYou have {warn}/{twarn} warnings!"
+UNAPPROVED_MSG = "**اهلا عزيزي 👋 {ON}!**\n\n{UND}\n\n لديك {warn}/{twarn} تحذيرات!"
 if udB.get_key("PM_TEXT"):
     UNAPPROVED_MSG = (
         "**PMSecurity of {ON}!**\n\n"
@@ -122,28 +122,28 @@ async def delete_pm_warn_msgs(chat: int):
 if udB.get_key("PMLOG"):
 
     @ultroid_cmd(
-        pattern="logpm$",
+        pattern="تسجيل الرسائل$",
     )
     async def _(e):
         if not e.is_private:
-            return await e.eor("`Use me in Private.`", time=3)
+            return await e.eor("`استخدمني في الوضع الخاص.`", time=3)
         if not is_logger(e.chat_id):
-            return await e.eor("`Wasn't logging msgs from here.`", time=3)
+            return await e.eor("`لم يتم تسجيل الرسائل من هنا 🧸♥️.`", time=3)
 
         nolog_user(e.chat_id)
-        return await e.eor("`Now I Will log msgs from here.`", time=3)
+        return await e.eor("`الآن سوف أقوم بتسجيل الرسالة من هنا.`", time=3)
 
     @ultroid_cmd(
-        pattern="nologpm$",
+        pattern="تعطيل تسجيل الرسائل$",
     )
     async def _(e):
         if not e.is_private:
-            return await e.eor("`Use me in Private.`", time=3)
+            return await e.eor("`استخدمني في الوضع الخاص.`", time=3)
         if is_logger(e.chat_id):
-            return await e.eor("`Wasn't logging msgs from here.`", time=3)
+            return await e.eor("`لم يتم تسجيل الرسائل من هنا.`", time=3)
 
         log_user(e.chat_id)
-        return await e.eor("`Now I Won't log msgs from here.`", time=3)
+        return await e.eor("`الآن لن أسجل الرسائل من هنا 🧸 ♥ ️.`", time=3)
 
     @ultroid_bot.on(
         events.NewMessage(
@@ -183,13 +183,13 @@ if udB.get_key("PMSETTING"):
                 await asst.edit_message(
                     LOG_CHANNEL,
                     _not_approved[miss.id],
-                    f"#AutoApproved : <b>OutGoing Message.\nUser : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
+                    f"#AutoApproved : <b>رسالة صادرة.\nالمستخدم : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
                     parse_mode="html",
                 )
             except KeyError:
                 await asst.send_message(
                     LOG_CHANNEL,
-                    f"#AutoApproved : <b>OutGoing Message.\nUser : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
+                    f"#AutoApproved : <b>رسالة صادرة.\nالمستخدم : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
                     parse_mode="html",
                 )
             except MessageNotModifiedError:
@@ -227,7 +227,7 @@ if udB.get_key("PMSETTING"):
                 await asst.edit_message(
                     int(udB.get_key("LOG_CHANNEL")),
                     _not_approved[user.id],
-                    f"Incoming PM from **{mention}** [`{user.id}`] with **{wrn}/{WARNS}** warning!",
+                    f"واردة من الحماية **{mention}** [`{user.id}`] مع **{wrn}/{WARNS}** التحذيرات!",
                     buttons=[
                         Button.inline("Approve PM", data=f"approve_{user.id}"),
                         Button.inline("Block PM", data=f"block_{user.id}"),
@@ -238,8 +238,8 @@ if udB.get_key("PMSETTING"):
                     int(udB.get_key("LOG_CHANNEL")),
                     f"Incoming PM from **{mention}** [`{user.id}`] with **1/{WARNS}** warning!",
                     buttons=[
-                        Button.inline("Approve PM", data=f"approve_{user.id}"),
-                        Button.inline("Block PM", data=f"block_{user.id}"),
+                        Button.inline("سماح", data=f"approve_{user.id}"),
+                        Button.inline("حظر", data=f"block_{user.id}"),
                     ],
                 )
                 wrn = 1
@@ -378,7 +378,7 @@ if udB.get_key("PMSETTING"):
                     f"**{mention}** [`{user.id}`] was Blocked for spamming.",
                 )
 
-    @ultroid_cmd(pattern="(start|stop|clear)archive$", fullsudo=True)
+    @ultroid_cmd(pattern="(تشغيل|تعطيل|امن)الحماية$", fullsudo=True)
     async def _(e):
         x = e.pattern_match.group(1).strip()
         if x == "start":
@@ -394,7 +394,7 @@ if udB.get_key("PMSETTING"):
             except Exception as mm:
                 await e.eor(str(mm), time=5)
 
-    @ultroid_cmd(pattern="(a|approve)(?: |$)", fullsudo=True)
+    @ultroid_cmd(pattern="(قبول|سماح)(?: |$)", fullsudo=True)
     async def approvepm(apprvpm):
         if apprvpm.reply_to_msg_id:
             user = (await apprvpm.get_reply_message()).sender
@@ -443,9 +443,9 @@ if udB.get_key("PMSETTING"):
             except MessageNotModifiedError:
                 pass
         else:
-            await apprvpm.eor("`User may already be approved.`", time=5)
+            await apprvpm.eor("`ربما تمت الموافقة على المستخدم بالفعل 🧸♥️.`", time=5)
 
-    @ultroid_cmd(pattern="(da|disapprove)(?: |$)", fullsudo=True)
+    @ultroid_cmd(pattern="(الغاء|رفض)(?: |$)", fullsudo=True)
     async def disapprovepm(e):
         if e.reply_to_msg_id:
             user = (await e.get_reply_message()).sender
@@ -456,13 +456,13 @@ if udB.get_key("PMSETTING"):
         if user.id in DEVLIST:
             return await eor(
                 e,
-                "`Lol, He is my Developer\nHe Can't Be DisApproved.`",
+                "`لول ، هو مطوري\n لا يمكن رفضه.`",
             )
         if is_approved(user.id):
             disapprove_user(user.id)
             await eod(
                 e,
-                f"<b>{inline_mention(user, html=True)}</b> <code>Disapproved to PM!</code>",
+                f"<b>{inline_mention(user, html=True)}</b> <code>تم الرفض!</code>",
                 parse_mode="html",
             )
             try:
@@ -496,7 +496,7 @@ if udB.get_key("PMSETTING"):
             )
 
 
-@ultroid_cmd(pattern="block( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="حظر( (.*)|$)", fullsudo=True)
 async def blockpm(block):
     match = block.pattern_match.group(1).strip()
     if block.reply_to_msg_id:
@@ -539,7 +539,7 @@ async def blockpm(block):
         pass
 
 
-@ultroid_cmd(pattern="unblock( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="الغاء الحظر( (.*)|$)", fullsudo=True)
 async def unblockpm(event):
     match = event.pattern_match.group(1).strip()
     reply = await event.get_reply_message()
@@ -579,7 +579,7 @@ async def unblockpm(event):
         aname = await event.client.get_entity(user)
         await event.eor(f"{inline_mention(aname)} [`{user}`] `has been UnBlocked!`")
     except Exception as et:
-        return await event.eor(f"ERROR - {et}")
+        return await event.eor(f"خطأ - {et}")
     try:
         await asst.edit_message(
             udB.get_key("LOG_CHANNEL"),
@@ -601,12 +601,12 @@ async def unblockpm(event):
         pass
 
 
-@ultroid_cmd(pattern="listapproved$", owner=True)
+@ultroid_cmd(pattern="الموافق عليه$", owner=True)
 async def list_approved(event):
     xx = await event.eor(get_string("com_1"))
     all = get_approved()
     if not all:
-        return await xx.eor("`You haven't approved anyone yet!`", time=5)
+        return await xx.eor("`لا يوجد اشخاص موافقين!`", time=5)
     users = []
     for i in all:
         try:
@@ -702,7 +702,7 @@ async def disapr_in(event):
         await event.answer("Disapproved.", alert=True)
     else:
         await event.edit(
-            "`User was never approved!`",
+            "`لم تتم الموافقة على المستخدم!`",
             buttons=[
                 [
                     Button.inline("Disapprove PM", data=f"disapprove_{uid}"),
@@ -811,7 +811,7 @@ async def in_pm_ans(event):
                 await event.builder.document(
                     res,
                     title="Inline PmPermit",
-                    description="~ @TeamUltroid",
+                    description="~ @Tepthone",
                     text=msg_,
                     buttons=buttons,
                     link_preview=False,
@@ -828,7 +828,7 @@ async def in_pm_ans(event):
                 title="Inline PMPermit.",
                 type=_type,
                 text=msg_,
-                description="@TeamUltroid",
+                description="@Tepthone",
                 include_media=include_media,
                 buttons=buttons,
                 thumb=cont,
@@ -855,8 +855,8 @@ async def _admin_tools(event):
 @callback(re.compile("don_(.*)"))
 async def _mejik(e):
     data = e.pattern_match.group(1).strip().decode("utf-8").split("/")
-    text = "👮‍♂ Warn Count : " + data[0]
-    text += "\n🤖 Total Warn Count : " + data[1]
+    text = "👮‍♂ تحذير الكونت : " + data[0]
+    text += "\n🤖 إجمالي عدد التحذير : " + data[1]
     await e.answer(text, alert=True)
 
 
