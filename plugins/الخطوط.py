@@ -23,13 +23,13 @@ Fonts = {
 
 
 @ultroid_cmd(
-    pattern="font( (.*)|$)",
+    pattern="خط( (.*)|$)",
 )
 async def _(e):
     input = e.pattern_match.group(1).strip()
     reply = await e.get_reply_message()
     if not input:
-        m = "**Available Fonts**\n\n"
+        m = "**الخطوط المتاحه**\n\n"
         for x in Fonts.keys():
             m += f"• `{x}`\n"
         return await e.eor(m, time=5)
@@ -41,12 +41,12 @@ async def _(e):
         except IndexError:
             return await eod(e, help)
     elif not input:
-        return await eod(e, "`Give font dude :/`")
+        return await eod(e, "`ارسل الخط:/`")
     else:
         font = input
         text = reply.message
     if font not in Fonts.keys():
-        return await e.eor(f"`{font} not in font list`.", time=5)
+        return await e.eor(f"`{font} ليس في قائمه الخطوط`.", time=5)
     msg = gen_font(text, Fonts[font])
     await e.eor(msg)
 
