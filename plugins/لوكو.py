@@ -51,7 +51,7 @@ async def logo_gen(event):
         else:
             pics = []
             async for i in event.client.iter_messages(
-                "@Tepthone", filter=InputMessagesFilterPhotos
+                "https://graph.org/file/bdf66aa4c558830a5e39b.jpg", filter=InputMessagesFilterPhotos
             ):
                 pics.append(i)
             id_ = random.choice(pics)
@@ -74,7 +74,7 @@ async def logo_gen(event):
         stroke_width=strke,
         stroke_fill="black",
     )
-    await xx.edit("`Done!`")
+    await xx.edit("`تم!`")
     await event.client.send_file(
         event.chat_id,
         file=name,
