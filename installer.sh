@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 REPO="https://github.com/tepthon-arabic/TepthonAr.git"
-DIR="/root/tepthon-arabic"
+DIR="/root/TeamUltroid"
 
 spinner(){
     local pid=$!
