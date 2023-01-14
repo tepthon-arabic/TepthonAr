@@ -37,7 +37,7 @@ from . import HNDLR, LOGS, asst, con, get_string, mediainfo, os, types, udB, ult
 
 
 @ultroid_cmd(
-    pattern="delchat",
+    pattern="مسح المحادثة",
     groups_only=True,
 )
 async def _(e):
@@ -59,7 +59,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="getlink( (.*)|$)",
+    pattern="الرابط( (.*)|$)",
     groups_only=True,
     manager=True,
 )
@@ -76,7 +76,7 @@ async def _(e):
     if match:
         split = match.split(maxsplit=1)
         request = split[0] in ["r", "request"]
-        title = "Created by Ultroid"
+        title = "إنشأت بواسطة @Tepthone"
         if len(split) > 1:
             match = split[1]
             spli = match.split(maxsplit=1)
@@ -115,12 +115,12 @@ async def _(e):
         if Inv and not Inv.revoked:
             link = Inv.link
     if link:
-        return await e.eor(f"Link:- {link}")
-    await e.eor("`Failed to getlink!\nSeems like link is inaccessible to you...`")
+        return await e.eor(f"الرابط:- {link}")
+    await e.eor("`فشل getlink!\n يبدو أن الرابط لا يمكن الوصول إليه...`")
 
 
 @ultroid_cmd(
-    pattern="create (b|g|c)(?: |$)(.*)",
+    pattern="إنشاء (b|كروب|قناة)(?: |$)(.*)",
 )
 async def _(e):
     type_of_group = e.pattern_match.group(1).strip()
@@ -151,7 +151,7 @@ async def _(e):
             )
         except Exception as ex:
             await xx.edit(str(ex))
-    elif type_of_group in ["g", "c"]:
+    elif type_of_group in ["كروب", "قناة"]:
         try:
             r = await e.client(
                 CreateChannelRequest(
@@ -185,11 +185,11 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="setgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
+    pattern="وضع صورة الكروب( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
 async def _(ult):
     if not ult.is_reply:
-        return await ult.eor("`Reply to a Media..`", time=5)
+        return await ult.eor("`الرد على الوسائط ❤️🧸..`", time=5)
     match = ult.pattern_match.group(1).strip()
     if not ult.client._bot and match:
         try:
@@ -204,7 +204,7 @@ async def _(ult):
     elif reply.document and reply.document.thumbs:
         replfile = await reply.download_media(thumb=-1)
     else:
-        return await ult.eor("Reply to a Photo or Video..")
+        return await ult.eor("يجب عليك الرد على صورة أو فيديو 🧸♥️..")
     mediain = mediainfo(reply.media)
     if "animated" in mediain:
         replfile = await con.convert(replfile, convert_to="mp4")
@@ -217,14 +217,14 @@ async def _(ult):
         if "pic" not in mediain:
             file = types.InputChatUploadedPhoto(video=file)
         await ult.client(EditPhotoRequest(chat, file))
-        await ult.eor("`Group Photo has Successfully Changed !`", time=5)
+        await ult.eor("تم وضعها صوره الكروب بنجاح ♥️🧸 !`", time=5)
     except Exception as ex:
-        await ult.eor(f"Error occured.\n`{str(ex)}`", time=5)
+        await ult.eor(f"خطأ.\n`{str(ex)}`", time=5)
     os.remove(replfile)
 
 
 @ultroid_cmd(
-    pattern="delgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
+    pattern="مسح صورة الكروب( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
 async def _(ult):
     match = ult.pattern_match.group(1).strip()
@@ -233,15 +233,15 @@ async def _(ult):
         chat = match
     try:
         await ult.client(EditPhotoRequest(chat, types.InputChatPhotoEmpty()))
-        text = "`Removed Chat Photo..`"
+        text = "`تمت إزالة صورة الدردشة ♥️🧸..`"
     except Exception as E:
         text = str(E)
     return await ult.eor(text, time=5)
 
 
-@ultroid_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")
+@ultroid_cmd(pattern="الغاء حظر الجميع$", manager=True, admins_only=True, require="ban_users")
 async def _(event):
-    xx = await event.eor("Searching Participant Lists.")
+    xx = await event.eor("البحث في قوائم المشاركين.")
     p = 0
     title = (await event.get_chat()).title
     async for i in event.client.iter_participants(
@@ -256,11 +256,11 @@ async def _(event):
             pass
         except BaseException as er:
             LOGS.exception(er)
-    await xx.eor(f"{title}: {p} unbanned", time=5)
+    await xx.eor(f"{title}: {p} الغاء حظر", time=5)
 
 
 @ultroid_cmd(
-    pattern="rmusers( (.*)|$)",
+    pattern="تفليش( (.*)|$)",
     groups_only=True,
     admins_only=True,
     fullsudo=True,
@@ -353,9 +353,9 @@ async def _(event):
             else:
                 n += 1
     if input_str:
-        required_string = f"**>> Kicked** `{c} / {p}` **users**\n\n"
+        required_string = f"**>> المطرودين** `{c} / {p}` **المستخدمين**\n\n"
     else:
-        required_string = f"**>> Total** `{p}` **users**\n\n"
+        required_string = f"**>> مجموع** `{p}` **المستخدمين**\n\n"
     required_string += f"  `{HNDLR}rmusers deleted`  **••**  `{d}`\n"
     required_string += f"  `{HNDLR}rmusers empty`  **••**  `{y}`\n"
     required_string += f"  `{HNDLR}rmusers month`  **••**  `{m}`\n"
