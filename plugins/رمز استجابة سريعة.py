@@ -33,14 +33,14 @@ from telethon.tl.types import MessageMediaPhoto as photu
 from . import check_filename, get_string, ultroid_bot, ultroid_cmd
 
 
-@ultroid_cmd(pattern="qrcode( (.*)|$)")
+@ultroid_cmd(pattern="رمز استجابة سريعة( (.*)|$)")
 async def cd(e):
     reply = await e.get_reply_message()
     msg = e.pattern_match.group(1).strip()
     if reply and reply.text:
         msg = reply.text
     elif not msg:
-        return await e.eor("`Give Some Text or Reply", time=5)
+        return await e.eor("`خلي نص او رد على رسالة", time=5)
     default, cimg = ULTConfig.thumb, None
     if reply and (reply.sticker or reply.photo):
         cimg = await reply.download_media()
@@ -66,7 +66,7 @@ async def cd(e):
         os.remove(cimg)
 
 
-@ultroid_cmd(pattern="addqr( (.*)|$)")
+@ultroid_cmd(pattern="اضف رمز استجابة( (.*)|$)")
 async def qrwater(e):
     msg = e.pattern_match.group(1).strip()
     r = await e.get_reply_message()
@@ -75,7 +75,7 @@ async def qrwater(e):
     elif isinstance(r.media, doc):
         dl = await e.client.download_media(r, thumb=-1)
     else:
-        return await e.eor("`Reply Any Media and Give Text`", time=5)
+        return await e.eor("`رد على ميديا وخلي نص ♥️🧸`", time=5)
     kk = await e.eor(get_string("com_1"))
     img_bg = Image.open(dl)
     qr = qrcode.QRCode(box_size=5)
@@ -90,11 +90,11 @@ async def qrwater(e):
     os.remove(dl)
 
 
-@ultroid_cmd(pattern="qrdecode$")
+@ultroid_cmd(pattern="فك رمز استجابة$")
 async def decod(e):
     r = await e.get_reply_message()
     if not (r and r.media):
-        return await e.eor("`Reply to Qrcode Media`", time=5)
+        return await e.eor("`رد على ميديا 🧸♥️`", time=5)
     kk = await e.eor(get_string("com_1"))
     if isinstance(r.media, photu):
         dl = await r.download_media()
@@ -108,5 +108,5 @@ async def decod(e):
         tx, y, z = det.detectAndDecode(im)
         await kk.edit("**Decoded Text:\n\n**" + tx)
     except BaseException:
-        await kk.edit("`Reply To Media in Which Qr image present.`")
+        await kk.edit("`رد على الوسائط التي تظهر فيها صورة Qr.`")
     os.remove(dl)
