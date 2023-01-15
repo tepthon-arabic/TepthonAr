@@ -115,14 +115,14 @@ async def _(event):
         return await event.eor(
             f"**ايدي المحادثة:**  `{event.chat_id}`\n**ايدي المستخدم:**  `{ids}`"
         )
-    data = f"**معرف الدردشة الحالي:**  `{event.chat_id}`"
+    data = f"**ايدي الدردشة الحالي:**  `{event.chat_id}`"
     if event.reply_to_msg_id:
         event = await event.get_reply_message()
-        data += f"\n**From User ID:**  `{event.sender_id}`"
+        data += f"\n**من ايدي المستخدم:**  `{event.sender_id}`"
     if event.media:
         bot_api_file_id = event.file.id
-        data += f"\n**Bot API File ID:**  `{bot_api_file_id}`"
-    data += f"\n**Msg ID:**  `{event.id}`"
+        data += f"\n**ايدي ملف واجهة برمجة تطبيقات البوت:**  `{bot_api_file_id}`"
+    data += f"\n**ايدي الرسالة:**  `{event.id}`"
     await ult.eor(data)
 
 
