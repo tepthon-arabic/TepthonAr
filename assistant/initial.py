@@ -15,32 +15,23 @@ STRINGS = {
 • فيما يلي بعض العناصر الأساسية ، حيث يمكنك معرفة استخدامها.""",
     2: """🎉** معلومات عن تيبثون العربي**
 
-🧿  تيبثون هو سورس تليثون يوز بوت قوي وقابل للتوصيل ، مصنوع في بايثون من . يهدف إلى زيادة الأمان إلى جانب إضافة ميزات مفيدة أخرى.
+🧿  تيبثون هو سورس تليثون يوزر بوت قوي وقابل للتوصيل ، مصنوع في بايثون من . يهدف إلى زيادة الأمان إلى جانب إضافة ميزات مفيدة أخرى.
 
 ❣ مشغل من **@Tepthone**""",
     3: """**💡• أسئلة وأجوبة •**
 
--> [Username Tracker](https://t.me/UltroidUpdates/24)
--> [Keeping Custom Addons Repo](https://t.me/UltroidUpdates/28)
--> [Disabling Deploy message](https://t.me/UltroidUpdates/27)
--> [Setting up TimeZone](https://t.me/UltroidUpdates/22)
--> [About Inline PmPermit](https://t.me/UltroidUpdates/21)
--> [About Dual Mode](https://t.me/UltroidUpdates/18)
--> [Custom Thumbnail](https://t.me/UltroidUpdates/13)
--> [About FullSudo](https://t.me/UltroidUpdates/11)
--> [Setting Up PmBot](https://t.me/UltroidUpdates/2)
--> [Also Check](https://t.me/UltroidUpdates/14)
+-> [مطور تيبثون](https://t.me/PPF22)
 
-**• To Know About Updates**
-  - Join @TeamUltroid.""",
-    4: f"""• `To Know All Available Commands`
+**• اعرف حول التحديثات**
+  - انضم @tepthone.""",
+    4: f"""• `اعرف جميع الاوامر المتاحه`
 
-  - `{HNDLR}help`
-  - `{HNDLR}cmds`""",
-    5: """• **For Any Other Query or Suggestion**
-  - Move to **@UltroidSupportChat**.
+  - `{HNDLR}مساعدة`
+  - `{HNDLR}الاوامر`""",
+    5: """• **لأي استفسار أو اقتراح آخر**
+  - الانتقال إلى **@tepthon_help**.
 
-• Thanks for Reaching till END.""",
+• شكرا للوصول حتى النهاية.""",
 }
 
 
@@ -50,7 +41,7 @@ async def init_depl(e):
     if CURRENT == 5:
         return await e.edit(
             STRINGS[5],
-            buttons=Button.inline("<< Back", "initbk_4"),
+            buttons=Button.inline("<< رجوع", "initbk_4"),
             link_preview=False,
         )
 
@@ -70,7 +61,7 @@ async def ineiq(e):
     if CURRENT == 1:
         return await e.edit(
             STRINGS[1],
-            buttons=Button.inline("Start Back >>", "initft_2"),
+            buttons=Button.inline("أبدا بالرجوع >>", "initft_2"),
             link_preview=False,
         )
 
