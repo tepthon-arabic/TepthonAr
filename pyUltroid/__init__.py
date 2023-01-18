@@ -13,7 +13,7 @@ from .version import __version__
 run_as_module = False
 
 class ULTConfig:
-    lang = "en"
+    lang = "ar"
     thumb = "resources/extras/ultroid.jpg"
 
 if sys.argv[0] == "-m":
@@ -92,7 +92,7 @@ if sys.argv[0] == "-m":
     DUAL_HNDLR = udB.get_key("DUAL_HNDLR") or "/"
     SUDO_HNDLR = udB.get_key("SUDO_HNDLR") or HNDLR
 else:
-    print("pyUltroid 2022 © TeamUltroid")
+    print("pyUltroid 2022 © Tepthon")
 
     from logging import getLogger
 
