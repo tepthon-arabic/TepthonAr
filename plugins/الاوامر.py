@@ -6,4 +6,4 @@ HMD = """[ . 𝐓𝐄𝐏𝐇𝐎𝐍 - 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒 ♛ .](
 
 @ultroid_cmd(pattern="الاوامر")
 async def hi(event):
-    await event.reply(f"{HMD}")
+    await event.edit(f"{HMD}")
