@@ -35,7 +35,7 @@ from . import (
 )
 
 
-@ultroid_cmd(pattern="compress( (.*)|$)")
+@ultroid_cmd(pattern="ضغط( (.*)|$)")
 async def _(e):
     cr = e.pattern_match.group(1).strip()
     crf = 27
@@ -64,7 +64,7 @@ async def _(e):
             vfile,
             xxx,
             c_time,
-            f"Downloading {name}...",
+            f"جاري التحمبل {name}♥️🧸...",
         )
 
         o_size = os.path.getsize(file.name)
@@ -73,13 +73,13 @@ async def _(e):
         file_name = (file.name).split("/")[-1]
         out = file_name.replace(file_name.split(".")[-1], "compressed.mkv")
         await xxx.edit(
-            f"`Downloaded {file.name} of {humanbytes(o_size)} in {diff}.\nNow Compressing...`"
+            f"`تم التنزيل {file.name} من {humanbytes(o_size)} في {diff}.\n الضغط الآن...`"
         )
         x, y = await bash(
             f'mediainfo --fullscan """{file.name}""" | grep "Frame count"'
         )
         if y and y.endswith("NOT_FOUND"):
-            return await xxx.edit(f"ERROR: `{y}`")
+            return await xxx.edit(f"خطأ: `{y}`")
         total_frames = x.split(":")[1].split("\n")[0]
         progress = f"progress-{c_time}.txt"
         with open(progress, "w"):
@@ -135,11 +135,11 @@ async def _(e):
             f"`Compressed {humanbytes(o_size)} to {humanbytes(c_size)} in {difff}\nTrying to Upload...`"
         )
         differ = 100 - ((c_size / o_size) * 100)
-        caption = f"**Original Size: **`{humanbytes(o_size)}`\n"
-        caption += f"**Compressed Size: **`{humanbytes(c_size)}`\n"
-        caption += f"**Compression Ratio: **`{differ:.2f}%`\n"
-        caption += f"\n**Time Taken To Compress: **`{difff}`"
-        mmmm = await uploader(out, out, f_time, xxx, f"Uploading {out}...")
+        caption = f"**الحجم الأصلي: **`{humanbytes(o_size)}`\n"
+        caption += f"**الحجم المضغوط: **`{humanbytes(c_size)}`\n"
+        caption += f"**نسبة الضغط: **`{differ:.2f}%`\n"
+        caption += f"\n**الوقت المستغرق للضغط: **`{difff}`"
+        mmmm = await uploader(out, out, f_time, xxx, f"تحميل {out}...")
         if to_stream:
             data = await metadata(out)
             width = data["width"]
