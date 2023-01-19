@@ -35,7 +35,7 @@ from . import (
 
 
 @ultroid_cmd(
-    pattern="كتم( (.*)|$)",
+    pattern="رفع مشرف( (.*)|$)",
     admins_only=True,
     manager=True,
     require="add_admins",
@@ -44,7 +44,7 @@ from . import (
 async def prmte(ult):
     xx = await ult.eor(get_string("com_1"))
     user, rank = await get_uinfo(ult)
-    rank = rank or "Admin"
+    rank = rank or "مشرف"
     FullRight = False
     if not user:
         return await xx.edit(get_string("pro_1"))
@@ -52,7 +52,7 @@ async def prmte(ult):
         try:
             rank = rank.split(maxsplit=1)[1]
         except IndexError:
-            rank = "Admin"
+            rank = "مشرف"
         FullRight = True
     try:
         if FullRight:
@@ -78,7 +78,7 @@ async def prmte(ult):
 
 
 @ultroid_cmd(
-    pattern="الغاء كتم( (.*)|$)",
+    pattern="مسح مشرف( (.*)|$)",
     admins_only=True,
     manager=True,
     require="add_admins",
@@ -108,7 +108,7 @@ async def dmote(ult):
 
 
 @ultroid_cmd(
-    pattern="حظر( (.*)|$)",
+    pattern="حظر المستخدم( (.*)|$)",
     admins_only=True,
     manager=True,
     require="ban_users",
@@ -463,7 +463,7 @@ async def get_all_pinned(event):
 async def autodelte(ult):
     match = ult.pattern_match.group(1).strip()
     if not match or match not in ["24h", "7d", "1m", "off"]:
-        return await ult.eor("`Please Use in Proper Format..`", time=5)
+        return await ult.eor("`الرجاء استخدام التنسيق المناسب 🙄🧸..`", time=5)
     if match == "24h":
         tt = 3600 * 24
     elif match == "7d":
