@@ -53,7 +53,7 @@ async def autopost_func(e):
                 await asst.send_message(udB.get_key("LOG_CHANNEL"), Error)
 
 
-@ultroid_cmd(pattern="shift (.*)")
+@ultroid_cmd(pattern="تحول (.*)")
 async def _(e):
     x = e.pattern_match.group(1).strip()
     z = await e.eor(get_string("com_1"))
@@ -78,10 +78,10 @@ async def _(e):
             await e.client.send_message(int(d), msg)
         except BaseException as er:
             LOGS.exception(er)
-    await z.edit("Done")
+    await z.edit("تم")
 
 
-@ultroid_cmd(pattern="asource (.*)")
+@ultroid_cmd(pattern="مصدر (.*)")
 async def source(e):
     if x := e.pattern_match.group(1).strip():
         try:
@@ -99,7 +99,7 @@ async def source(e):
         await e.eor(get_string("cha_3"))
 
 
-@ultroid_cmd(pattern="dsource( (.*)|$)")
+@ultroid_cmd(pattern="مصدر d( (.*)|$)")
 async def dd(event):
     chat_id = event.pattern_match.group(1).strip()
     x = await event.eor(get_string("com_1"))
@@ -126,7 +126,7 @@ async def dd(event):
         await eor(x, "Source channel is already removed from database. ", time=3)
 
 
-@ultroid_cmd(pattern="listsource")
+@ultroid_cmd(pattern="مصدر القوائم")
 async def list_all(event):
     x = await event.eor(get_string("com_1"))
     num = get_no_source_channels()
@@ -159,7 +159,7 @@ async def list_all(event):
         await x.edit(msg)
 
 
-@ultroid_cmd(pattern="adest (.*)")
+@ultroid_cmd(pattern="أديست (.*)")
 async def destination(e):
     if x := e.pattern_match.group(1).strip():
         try:
@@ -176,7 +176,7 @@ async def destination(e):
         await e.eor("Destination channel already added")
 
 
-@ultroid_cmd(pattern="ddest( (.*)|$)")
+@ultroid_cmd(pattern="ديدست( (.*)|$)")
 async def dd(event):
     chat_id = event.pattern_match.group(1).strip()
     x = await event.eor(get_string("com_1"))
@@ -203,7 +203,7 @@ async def dd(event):
         await eor(x, "Destination channel is already removed from database. ", time=5)
 
 
-@ultroid_cmd(pattern="listdest")
+@ultroid_cmd(pattern="قائمة ديست")
 async def list_all(event):
     ultroid_bot = event.client
     x = await event.eor(get_string("com_1"))
