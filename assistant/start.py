@@ -27,26 +27,26 @@ if Owner_info_msg is None:
 **المالك** - {OWNER_NAME}
 **ايدي المالك** - `{OWNER_ID}`
 
-**Message Forwards** - {udB.get_key("PMBOT")}
+**توجيه الرسائل** - {udB.get_key("PMBOT")}
 
-**Ultroid [v{ultroid_version}](https://t.me/Tepthone), قناة السورس @Tepthone**
+**تيبثون [v{ultroid_version}](https://t.me/Tepthone), مشغل من @Tepthone**
 """
 
 
 _settings = [
     [
-        Button.inline("مفاتيح API", data="cbs_apiset"),
-        Button.inline("مساء البوت", data="cbs_chatbot"),
+        Button.inline("مفاتيحAPi", data="cbs_apiset"),
+        Button.inline("الحماية", data="cbs_chatbot"),
     ],
     [
-        Button.inline("فحص 📍", data="cbs_alvcstm"),
-        Button.inline("الحماية", data="cbs_ppmset"),
+        Button.inline("فحص", data="cbs_alvcstm"),
+        Button.inline("PMPERMIT", data="cbs_ppmset"),
     ],
     [
-        Button.inline("الميزات 📜", data="cbs_otvars"),
-        Button.inline("المشغل 🎧", data="cbs_vcb"),
+        Button.inline("فاس", data="cbs_otvars"),
+        Button.inline("المشغل", data="cbs_vcb"),
     ],
-    [Button.inline("« الرجوع ", data="mainmenu")],
+    [Button.inline("« رجوع", data="mainmenu")],
 ]
 
 _start = [
@@ -55,10 +55,10 @@ _start = [
         Button.inline("الاعدادات ⚙️", data="setter"),
     ],
     [
-        Button.inline("الحالة ✨", data="stat"),
-        Button.inline("راديو 📻", data="bcast"),
+        Button.inline("المطور ✨", data="stat"),
+        Button.inline("الراديو 📻", data="bcast"),
     ],
-    [Button.inline("الوقت 🌎", data="tz")],
+    [Button.inline("اسم وقتي 🌎", data="tz")],
 ]
 
 
@@ -91,8 +91,8 @@ async def ultroid(event):
         add_user(event.sender_id)
         kak_uiw = udB.get_key("OFF_START_LOG")
         if not kak_uiw or kak_uiw != True:
-            msg = f"{inline_mention(event.sender)} `[{event.sender_id}]` started your [Assistant bot](@{asst.me.username})."
-            buttons = [[Button.inline("معلومات", "itkkstyo")]]
+            msg = f"{inline_mention(event.sender)} `[{event.sender_id}]` ضغط /start [البوت المساعد](@{asst.me.username})."
+            buttons = [[Button.inline("Info", "itkkstyo")]]
             if event.sender.username:
                 buttons[0].append(
                     Button.mention(
@@ -112,9 +112,9 @@ async def ultroid(event):
             if udB.get_key("PMBOT"):
                 ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
             await event.reply(
-                f"اهلًا عزيزي {mention}, انا البوت المساعد الخاص بـ {me}!\n\n{ok}",
+                f"أهلا انا {mention}, البوت المساعد الخاص بـ {me}!\n\n{ok}",
                 file=udB.get_key("STARTMEDIA"),
-                buttons=[Button.inline("Info.", data="ownerinfo")]
+                buttons=[Button.inline("معلومات.", data="ownerinfo")]
                 if Owner_info_msg
                 else None,
             )
@@ -122,7 +122,7 @@ async def ultroid(event):
             await event.reply(
                 udB.get_key("STARTMSG").format(me=me, mention=mention),
                 file=udB.get_key("STARTMEDIA"),
-                buttons=[Button.inline("Info.", data="ownerinfo")]
+                buttons=[Button.inline("معلومات.", data="ownerinfo")]
                 if Owner_info_msg
                 else None,
             )
@@ -221,7 +221,7 @@ async def timezone_(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "تم الإلغاء!!",
                 buttons=get_back_button("mainmenu"),
             )
         try:
