@@ -54,7 +54,7 @@ from ._inline import something
 Note = "\n\nNote: `{mention}`, `{group}`, `{count}`, `{name}`, `{fullname}`, `{username}`, `{userid}` can be used as formatting parameters.\n\n"
 
 
-@ultroid_cmd(pattern="setwelcome", groups_only=True)
+@ultroid_cmd(pattern="وضع ترحيب", groups_only=True)
 async def setwel(event):
     x = await event.eor(get_string("com_1"))
     r = await event.get_reply_message()
@@ -98,7 +98,7 @@ async def setwel(event):
         await eor(x, get_string("grt_3"), time=5)
 
 
-@ultroid_cmd(pattern="clearwelcome$", groups_only=True)
+@ultroid_cmd(pattern="ترحيب واضح$", groups_only=True)
 async def clearwel(event):
     if not get_welcome(event.chat_id):
         return await event.eor(get_string("grt_4"), time=5)
@@ -106,7 +106,7 @@ async def clearwel(event):
     await event.eor(get_string("grt_5"), time=5)
 
 
-@ultroid_cmd(pattern="getwelcome$", groups_only=True)
+@ultroid_cmd(pattern="الترحيبات$", groups_only=True)
 async def listwel(event):
     wel = get_welcome(event.chat_id)
     if not wel:
@@ -115,11 +115,11 @@ async def listwel(event):
     if wel.get("button"):
         btn = create_tl_btn(wel["button"])
         return await something(event, msgg, med, btn)
-    await event.reply(f"**Welcome Note in this chat**\n\n`{msgg}`", file=med)
+    await event.reply(f"**الترحيبات في هذه الدردشة**\n\n`{msgg}`", file=med)
     await event.delete()
 
 
-@ultroid_cmd(pattern="setgoodbye", groups_only=True)
+@ultroid_cmd(pattern="وضع ترحيب المغادره", groups_only=True)
 async def setgb(event):
     x = await event.eor(get_string("com_1"))
     r = await event.get_reply_message()
@@ -163,7 +163,7 @@ async def setgb(event):
         await eor(x, get_string("grt_7"), time=5)
 
 
-@ultroid_cmd(pattern="cleargoodbye$", groups_only=True)
+@ultroid_cmd(pattern="ترحيب مغادره واضح$", groups_only=True)
 async def clearwgb(event):
     if not get_goodbye(event.chat_id):
         return await event.eor(get_string("grt_6"), time=5)
@@ -171,7 +171,7 @@ async def clearwgb(event):
     await event.eor("`Goodbye Note Deleted`", time=5)
 
 
-@ultroid_cmd(pattern="getgoodbye$", groups_only=True)
+@ultroid_cmd(pattern="ترحيبات المغادره$", groups_only=True)
 async def listgd(event):
     wel = get_goodbye(event.chat_id)
     if not wel:
@@ -181,17 +181,17 @@ async def listgd(event):
     if wel.get("button"):
         btn = create_tl_btn(wel["button"])
         return await something(event, msgg, med, btn)
-    await event.reply(f"**Goodbye Note in this chat**\n\n`{msgg}`", file=med)
+    await event.reply(f"**ترحيبات المغادره في هذه المحادثه**\n\n`{msgg}`", file=med)
     await event.delete()
 
 
-@ultroid_cmd(pattern="thankmembers (on|off)", groups_only=True)
+@ultroid_cmd(pattern="شكر الأعضاء (تفعيل|تعطيل)", groups_only=True)
 async def thank_set(event):
     type_ = event.pattern_match.group(1).strip()
     if not type_ or type_ == "":
         await eor(
             event,
-            f"**Current Chat Settings:**\n**Thanking Members:** `{must_thank(event.chat_id)}`\n\nUse `{HNDLR}thankmembers on` or `{HNDLR}thankmembers off` to toggle current settings!",
+            f"**إعدادات الدردشة الحالية:**\n**شكر الأعضاء:** `{must_thank(event.chat_id)}`\n\nUse `{HNDLR}thankmembers on` or `{HNDLR}thankmembers off` to toggle current settings!",
         )
         return
     chat = event.chat_id
@@ -201,5 +201,5 @@ async def thank_set(event):
         remove_thanks(chat)
     await eor(
         event,
-        f"**Done! Thank you members has been turned** `{type_.lower()}` **for this chat**!",
+        f"**تم! شكرا لك الأعضاء قد فرحت** `{type_.lower()}` **for this chat**!",
     )
