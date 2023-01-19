@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPO="https://github.com/tepthon-arabic/TepthonAr.git"
+REPO="https://github.com/rogerpq/Ultroid.git"
 DIR="/root/TeamUltroid"
 
 spinner(){
@@ -36,7 +36,7 @@ clone_repo(){
             fi
             return
     fi
-    echo -e "Cloning Ultroid ${BRANCH}... "
+    echo -e "Cloning Repthon ${BRANCH}... "
     git clone -b $BRANCH $REPO $DIR
 }
 
@@ -50,7 +50,7 @@ install_requirements(){
 railways_dep(){
     if [ $RAILWAY_STATIC_URL ]
         then
-            echo -e "Installing YouTube dependency... "
+            echo -e "جار تنزيل ملف يوتيوب... "
             pip3 install -q yt-dlp
     fi
 }
@@ -58,7 +58,7 @@ railways_dep(){
 misc_install(){
     if [ $OKTETO_TOKEN ]
         then
-            echo -e "Installing Okteto-CLI... "
+            echo -e "جار تنزيل ملف اوكتيتو سي ايل آي... "
             curl https://get.okteto.com -sSfL | sh
     elif [ $VCBOT ]
         then
