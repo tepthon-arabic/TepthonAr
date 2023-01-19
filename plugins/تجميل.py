@@ -26,7 +26,7 @@ else:
 
 
 @ultroid_cmd(
-    pattern="(rc|c)arbon",
+    pattern="(rc|c)كربون",
 )
 async def crbn(event):
     xxxx = await event.eor(get_string("com_1"))
@@ -55,7 +55,7 @@ async def crbn(event):
 
 
 @ultroid_cmd(
-    pattern="ccarbon( (.*)|$)",
+    pattern="كربون( (.*)|$)",
 )
 async def crbn(event):
     match = event.pattern_match.group(1).strip()
@@ -98,7 +98,7 @@ RaySoTheme = [
 ]
 
 
-@ultroid_cmd(pattern="rayso")
+@ultroid_cmd(pattern="رايسو")
 async def pass_on(ult):
     spli = ult.text.split()
     theme, dark, title, text = None, True, get_display_name(ult.chat), None
