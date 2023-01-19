@@ -15,7 +15,7 @@ from pyUltroid.fns.tools import get_chatbot_reply
 from . import eod, get_string, inline_mention, udB, ultroid_cmd, LOGS
 
 
-@ultroid_cmd(pattern="repai")
+@ultroid_cmd(pattern="اصلاح")
 async def im_lonely_chat_with_me(event):
     if event.reply_to:
         message = (await event.get_reply_message()).message
@@ -28,23 +28,23 @@ async def im_lonely_chat_with_me(event):
     await event.eor(reply_)
 
 
-@ultroid_cmd(pattern="addai")
+@ultroid_cmd(pattern="اضف")
 async def add_chatBot(event):
     await chat_bot_fn(event, type_="add")
 
 
-@ultroid_cmd(pattern="remai")
+@ultroid_cmd(pattern="حذف")
 async def rem_chatBot(event):
     await chat_bot_fn(event, type_="remov")
 
 
-@ultroid_cmd(pattern="listai")
+@ultroid_cmd(pattern="قائمة ai")
 async def lister(event):
     key = udB.get_key("CHATBOT_USERS") or {}
     users = key.get(event.chat_id, [])
     if not users:
         return await event.eor(get_string("chab_2"), time=5)
-    msg = "**Total List Of AI Enabled Users In This Chat :**\n\n"
+    msg = "**القائمة الإجمالية للمستخدمين الذين تم تمكينهم بواسطة AI في هذه الدردشة :**\n\n"
     for i in users:
         try:
             user = await event.client.get_entity(int(i))
@@ -86,4 +86,5 @@ async def chat_bot_fn(event, type_):
             if chat in key and not key[chat]:
                 del key[chat]
     udB.set_key("CHATBOT_USERS", key)
-    await event.eor(f"**ChatBot:**\n{type_}ed {inline_mention(user_)}")
+    await event.eor(f"**دردشة البوت:**\n{type_}ed {inline_mention(user_)}")
+#تعريب_وكتابة_فريق_تيبثون
