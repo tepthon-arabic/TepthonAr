@@ -7,14 +7,14 @@
 """
 ✘ Commands Available -
 
-• `{i}اضف مميز <word><reply to a message>`
-    اضف الشخص مميز عن طريق الرد.
+• `{i}اضف رد <word><reply to a message>`
+    اضف رد عن طريق كتابه رساله.
 
-• `{i}مسح مميز <word>`
-    مسح الشخص مميز..
+• `{i}مسح رد <word>`
+    مسح رد..
 
-• `{i}قائمة المميزين`
-    قائمة المميزين جميعهم.
+• `{i}قائمة الردود`
+    قائمة الردود جميعهم.
 
 • Use :
     type `$(ur snip word)` get setted reply.
@@ -32,7 +32,7 @@ from . import events, get_string, mediainfo, udB, ultroid_bot, ultroid_cmd
 from ._inline import something
 
 
-@ultroid_cmd(pattern="اضف مميز( (.*)|$)")
+@ultroid_cmd(pattern="اضف رد( (.*)|$)")
 async def an(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     wt = await e.get_reply_message()
@@ -69,11 +69,11 @@ async def an(e):
         if not btn:
             txt, btn = get_msg_button(wt.text)
         add_snip(wrd, txt, None, btn)
-    await e.eor(f"تم : إضافته مميز `${wrd}` وتم الحفظ 🧸♥️.")
+    await e.eor(f"تم : إضافه الرد `${wrd}` وتم الحفظ 🧸♥️.")
     ultroid_bot.add_handler(add_snips, events.NewMessage())
 
 
-@ultroid_cmd(pattern="مسح مميز( (.*)|$)")
+@ultroid_cmd(pattern="مسح رد( (.*)|$)")
 async def rs(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     if not wrd:
@@ -81,16 +81,16 @@ async def rs(e):
     if wrd.startswith("$"):
         wrd = wrd.replace("$", "")
     rem_snip(wrd)
-    await e.eor(f"تم : مسح المميز `${wrd}` ♥️🧸.")
+    await e.eor(f"تم : مسح الرد `${wrd}` ♥️🧸.")
 
 
-@ultroid_cmd(pattern="listsnip")
+@ultroid_cmd(pattern="قائمة الردود")
 async def lsnote(e):
     if x := list_snip():
         sd = "SNIPS Found :\n\n"
         await e.eor(sd + x)
     else:
-        await e.eor("لا يوجد مميزين هنا 🧸♥️")
+        await e.eor("لا يوجد ردود هنا 🧸♥️")
 
 
 async def add_snips(e):
