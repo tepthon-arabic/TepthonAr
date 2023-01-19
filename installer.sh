@@ -36,7 +36,7 @@ clone_repo(){
             fi
             return
     fi
-    echo -e "Cloning Repthon ${BRANCH}... "
+    echo -e "Cloning Tepthon ${BRANCH}... "
     git clone -b $BRANCH $REPO $DIR
 }
 
