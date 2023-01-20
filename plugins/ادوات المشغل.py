@@ -43,7 +43,7 @@ def user_list(l, n):
 
 
 @ultroid_cmd(
-    pattern="stopvc$",
+    pattern="انهاء المحادثة الصوتية$",
     admins_only=True,
     groups_only=True,
 )
@@ -56,7 +56,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="vcinvite$",
+    pattern="دعوة الى المحادثة الصوتية$",
     groups_only=True,
 )
 async def _(e):
@@ -77,7 +77,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="startvc$",
+    pattern="بدء محادثة صوتية$",
     admins_only=True,
     groups_only=True,
 )
@@ -90,7 +90,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="vctitle(?: |$)(.*)",
+    pattern="عنوان المحادثة الصوتية(?: |$)(.*)",
     admins_only=True,
     groups_only=True,
 )
