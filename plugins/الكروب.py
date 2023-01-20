@@ -185,7 +185,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="وضع صورة الكروب( (.*)|$)", admins_only=True, manager=True, require="change_info"
+    pattern="اضف صورة الكروب( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
 async def _(ult):
     if not ult.is_reply:
