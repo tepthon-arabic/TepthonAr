@@ -56,7 +56,7 @@ async def _(e):
 
 
 @ultroid_cmd(
-    pattern="دعوة الى المحادثة الصوتية$",
+    pattern="دعوه الى المحادثة الصوتية$",
     groups_only=True,
 )
 async def _(e):
