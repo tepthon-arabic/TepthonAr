@@ -1,54 +1,54 @@
 {
-    "name": "Ultroid UserBot",
-    "description": "Pluggable telegram userbot, made in python using Telethon.",
-    "logo": "https://graph.org/file/031957757a4f6a5191040.jpg",
+    "name": "سورس تيبثون - TEPTHON USERBOT",
+    "description": "تنصيب سورس تيبثون العربي مجانًا على هيروكو - اللهم صل وسلم وبارك على سيدنا محمد",
+    "logo": "https://telegra.ph/file/4a385dd84812e6873d575.jpg",
     "keywords": [
         "Telethon",
         "telegram",
         "userbot",
         "python",
-        "ultroid"
+        "tepthon"
     ],
-    "repository": "https://github.com/TeamUltroid/Ultroid",
-    "website": "https://ultroid.tech",
-    "success_url": "https://t.me/TeamUltroid",
+    "repository": "https://github.com/tepthon-arabic/TepthonAr",
+    "website": "https://t.me/tepthone_source",
+    "success_url": "https://t.me/Tepthone",
     "stack": "container",
     "env": {
         "API_ID": {
-            "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
+            "description": "ادخل الايبي ايدي الخاص بك من my.telegram.org او @ScrapperRoBot.",
             "value": "", 
             "required": false
         },
         "API_HASH": {
-            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "description": "ادخل الايبي هاش الخاص بك من my.telegram.org او @ScrapperRoBot.",
             "value": "",
             "required": false
         },
         "SESSION": {
-            "description": "Session String (telethon or pyrogram) for your telegram user account. The userbot will NOT work without a session string!!",
+            "description": "ادخل كود السيشن (تليثون أو بايروجرام) لحساب مستخدم تليكرام الخاص بك. إذا لم تدخل الكود تيبثون لا يعمل إلا بدون كود سيشن تليثون أو بايروجرام!!",
             "value": ""
         },
         "REDIS_URI": {
-            "description": "Redis endpoint URL, from redislabs.com",
+            "description": "عنوان الرابط لنقطة نهاية ريدس ، من redislabs.com",
             "value": ""
         },
         "REDIS_PASSWORD": {
-            "description": "Redis endpoint password, from redislabs.com",
+            "description": "باسورد الريدس الخاص بك احصل عليه من redislabs.com",
             "value": ""
         },
         "HEROKU_API": {
-            "description": "Heroku API token. Mandatory for Heroku Deploy...",
+            "description": "هيروكو ايبي كي احصل عليه من اعدادات هيروكو...",
             "value": "",
             "required": false
         },
         "HEROKU_APP_NAME": {
-            "description": "Name of your Heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
+            "description": "اسم تطبيق هيروكو الخاص بك ، موجود في أول فراغ في هذه الصفحة. تضاف في حالة النشر إلى هيروكو فقط.",
             "value": "",
             "required": false
         }
     },
     "formation": {
-        "ultroid": {
+        "TepthonAr": {
             "quantity": 1,
             "size": "free"
         }
