@@ -21,7 +21,7 @@ from . import HNDLR, LOGS, eor, get_string, udB, ultroid_bot, ultroid_cmd
 
 
 @ultroid_cmd(
-    pattern="addch( (.*)|$)",
+    pattern="اضف قناة( (.*)|$)",
     allow_sudo=False,
 )
 async def broadcast_adder(event):
@@ -76,7 +76,7 @@ async def broadcast_adder(event):
 
 
 @ultroid_cmd(
-    pattern="remch( (.*)|$)",
+    pattern="مسح قناة( (.*)|$)",
     allow_sudo=False,
 )
 async def broadcast_remover(event):
@@ -97,7 +97,7 @@ async def broadcast_remover(event):
 
 
 @ultroid_cmd(
-    pattern="listchannels$",
+    pattern="قائمة القنوات$",
 )
 async def list_all(event):
     x = await event.eor(get_string("com_1"))
@@ -130,7 +130,7 @@ async def list_all(event):
 
 
 @ultroid_cmd(
-    pattern="forward$",
+    pattern="إلى الأمام$",
     allow_sudo=False,
 )
 async def forw(event):
@@ -173,7 +173,7 @@ async def forw(event):
 
 
 @ultroid_cmd(
-    pattern="broadcast( (.*)|$)",
+    pattern="اذاعة( (.*)|$)",
     allow_sudo=False,
 )
 async def sending(event):
@@ -183,7 +183,7 @@ async def sending(event):
     channels = get_channels()
     if not channels:
         return await x.edit(f"Please add channels by using `{HNDLR}add` in them.")
-    await x.edit("Sending....")
+    await x.edit("إرسال....")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         if previous_message.poll:
@@ -202,7 +202,7 @@ async def sending(event):
 
                     await ultroid_bot.send_message(
                         udB.get_key("LOG_CHANNEL"),
-                        f"Error in sending at {channel}.\n\n{error}",
+                        f"خطأ في الإرسال في {channel}.\n\n{error}",
                     )
                     error_count += 1
                     await x.edit(
