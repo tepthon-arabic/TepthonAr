@@ -1,6 +1,6 @@
 #by Hmd i programmer python
 # يمنع منعاً باتاً تخمط الملف خلي عندك كرامه ولتسرقة
-from plugins import ultroid
+from plugins import ultroid_cmd
 from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -12,7 +12,7 @@ bot_username = '@t06bot'
 plugins = ['yes']
 
 
-@ultroid_bot.on(admin_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
+@ultroid_cmd(admin_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
 async def _(event):
     if plugins[0] == "yes":
         await event.edit("**᯽︙سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
