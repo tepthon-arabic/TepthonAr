@@ -50,7 +50,7 @@ upage = 0
 
 SUP_BUTTONS = [
     [
-        Button.url("• قناة السورس •", url="https://t.me/Tepthone"),
+        Button.url("• قناة السورس •", url="https://t.me/Tepthon"),
         Button.url("• المساعدة 📍 •", url="t.me/Tepthon_Help"),
     ],
 ]
@@ -195,7 +195,7 @@ async def uptd_plugin(event):
                 help_ += "\n"
     if not help_:
         help_ = f"{file} has no Detailed Help!"
-    help_ += "\n© @Tepthone"
+    help_ += "\n© @Tepthon"
     buttons = []
     if inline_pic():
         data = f"sndplug_{key}_{file}"
@@ -400,7 +400,7 @@ async def ibuild(e):
                             _pic,
                             title="Tepthon Op",
                             text=txt,
-                            description="@Tepthone",
+                            description="@Tepthon",
                             buttons=btn,
                             link_preview=False,
                         )
