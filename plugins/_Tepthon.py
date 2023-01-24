@@ -15,14 +15,14 @@ from . import LOG_CHANNEL, LOGS, Button, asst, eor, get_string, ultroid_cmd
 
 REPOMSG = """
 • **سورس تيبثون العربي** •\n
-• قناة السورس - [Click Here](https://t.me/Tepthone)
+• قناة السورس - [Click Here](https://t.me/Tepthon)
 • المطور - [Click Here](https://t.me/PPF22)
 • كروب الدعم 🔧 - @Tepthon_Help
 """
 
 RP_BUTTONS = [
     [
-        Button.url(get_string("bot_3"), "https://t.me/Tepthonee"),
+        Button.url(get_string("bot_3"), "https://t.me/Tepthon"),
         Button.url("المطور ♥️", "https://t.me/PPF22"),
     ],
     [Button.url("كروب المساعدة 🛠️", "t.me/Tepthon_Help")],
@@ -49,13 +49,13 @@ async def repify(e):
     ):
         pass
     except Exception as er:
-        LOGS.info(f"Error while repo command : {str(er)}")
+        LOGS.info(f"خطأ أثناء أمر الريبو : {str(er)}")
     await e.eor(REPOMSG)
 
 
 @ultroid_cmd(pattern="تيبثون$")
 async def useUltroid(rs):
-    button = Button.inline("Start >>", "initft_2")
+    button = Button.inline("البدء >>", "initft_2")
     msg = await asst.send_message(
         LOG_CHANNEL,
         ULTSTRING,
@@ -63,4 +63,4 @@ async def useUltroid(rs):
         buttons=button,
     )
     if not (rs.chat_id == LOG_CHANNEL and rs.client._bot):
-        await eor(rs, f"**[Click Here]({msg.message_link})**")
+        await eor(rs, f"**[اضغط هنا]({msg.message_link})**")
