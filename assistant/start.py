@@ -29,7 +29,7 @@ if Owner_info_msg is None:
 
 **توجيه الرسائل** - {udB.get_key("PMBOT")}
 
-**تيبثون [v{ultroid_version}](https://t.me/Tepthone), مشغل من @Tepthone**
+**تيبثون [v{ultroid_version}](https://t.me/Tepthon), مشغل من @Tepthon**
 """
 
 
@@ -68,7 +68,7 @@ async def own(event):
         mention=event.sender.mention, me=inline_mention(ultroid_bot.me)
     )
     if custom_info:
-        msg += "\n\n• مشغل من **@Tepthone**"
+        msg += "\n\n• مشغل من **@Tepthon**"
     await event.edit(
         msg,
         buttons=[Button.inline("إغلاق", data="closeit")],
