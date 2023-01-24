@@ -237,7 +237,7 @@ async def autopilot():
             r = await ultroid_bot(
                 CreateChannelRequest(
                     title="مجموعة اشعارات تببثون",
-                    about="هذه مجموعة اشعارات تيبثون خاصة بسورس تيبثون\n\n قناة السورس @Tepthone",
+                    about="هذه مجموعة اشعارات تيبثون خاصة بسورس تيبثون\n\n قناة السورس @Tepthon",
                     megagroup=True,
                 ),
             )
@@ -372,7 +372,7 @@ async def customize():
         await asyncio.sleep(1)
         await ultroid_bot.send_message(
             "botfather",
-            f"✨ بوت مساعد تيبثون قوي ✨\n✨ Master ~ {sir} ✨\n\n✨ مشغل من ~ @Tepthone ✨",
+            f"✨ بوت مساعد تيبثون قوي ✨\n✨ Master ~ {sir} ✨\n\n✨ مشغل من ~ @Tepthon ✨",
         )
         await asyncio.sleep(2)
         await msg.edit("Completed **Auto Customisation** at @BotFather.")
@@ -436,7 +436,7 @@ async def ready():
         BTTS = Button.inline("• Click to Start •", "initft_2")
         udB.set_key("INIT_DEPLOY", "Done")
     else:
-        MSG = f"**شكرًا على تنصيب سورس تيبثون العربي!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**المساعد**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**المساعدة**: @Tepthone\n➖➖➖➖➖➖➖➖➖➖"
+        MSG = f"**شكرًا على تنصيب سورس تيبثون العربي!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**المساعد**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**المساعدة**: @Tepthon\n➖➖➖➖➖➖➖➖➖➖"
         BTTS, PHOTO = None, None
         prev_spam = udB.get_key("LAST_UPDATE_LOG_SPAM")
         if prev_spam:
