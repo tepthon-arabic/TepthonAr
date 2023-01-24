@@ -32,7 +32,7 @@ IN_BTTS = [
     [
         Button.url(
             "‹ قناة السورس ›",
-            url="https://t.me/Tepthone",
+            url="https://t.me/Tepthon",
         ),
         Button.url("‹ كروب الدعم ›", url="https://t.me/Tepthon_Help"),
     ]
@@ -92,7 +92,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                 res = [
                     await event.builder.article(
                         title="Tepthon Userbot",
-                        url="https://t.me/Tepthone",
+                        url="https://t.me/Tepthon",
                         description="لجعل تيبثون من نصيبك !",
                         text=MSG,
                         thumb=InputWebDocument(
