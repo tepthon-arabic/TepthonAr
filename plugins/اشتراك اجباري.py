@@ -47,7 +47,7 @@ async def fsub(event):
                 return await event.reply("هذه القناة غير صالحة .")
         except:
             return await event.reply("يجب وضع المعرف بشكل صحيح.")
-        if not await participant_check(channel, ultroid.uid):
+        if not await participant_check(channel, Ultroid.uid):
             return await event.reply(
                 f"❗**أنا لست ادمن في هذه القناة**\n [القناة](https://t.me/{channel}). يجب ان اكون مشرف في القناة اولا.",
                 link_preview=False,
