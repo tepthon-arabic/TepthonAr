@@ -1,48 +1,65 @@
 {
-    "name": "سورس تيبثون - TEPTHON USERBOT",
-    "description": "تنصيب سورس تيبثون العربي مجانًا على هيروكو - اللهم صل وسلم وبارك على سيدنا محمد",
-    "logo": "https://telegra.ph/file/4a385dd84812e6873d575.jpg",
-    "keywords": [
-        "Telethon",
-        "telegram",
-        "userbot",
-        "python",
-        "tepthon"
-    ],
-    "repository": "https://github.com/tepthon-arabic/TepthonAr",
-    "website": "https://t.me/tepthone_source",
-    "success_url": "https://t.me/Tepthone",
-    "stack": "container",
-    "env": {
-        "API_ID": {
-            "description": "ادخل الايبي ايدي الخاص بك من my.telegram.org او @ScrapperRoBot.",
-            "value": "", 
-            "required": false
-        },
-        "API_HASH": {
-            "description": "ادخل الايبي هاش الخاص بك من my.telegram.org او @ScrapperRoBot.",
-            "value": "",
-            "required": false
-        },
-        "SESSION": {
-            "description": "ادخل كود السيشن (تليثون أو بايروجرام) لحساب مستخدم تليكرام الخاص بك. إذا لم تدخل الكود تيبثون لا يعمل إلا بدون كود سيشن تليثون أو بايروجرام!!",
-            "value": ""
-        },
-        "HEROKU_API": {
-            "description": "هيروكو ايبي كي احصل عليه من اعدادات هيروكو...",
-            "value": "",
-            "required": false
-        },
-        "HEROKU_APP_NAME": {
-            "description": "اسم تطبيق هيروكو الخاص بك ، موجود في أول فراغ في هذه الصفحة. تضاف في حالة النشر إلى هيروكو فقط.",
-            "value": "",
-            "required": false
-        }
+  "name": "سورس تيبثـون",
+  "description": "سـورس تيبثـون العربـي كامـل ومتطـور • رمضان كريم 🌙 .",
+  "logo": "https://telegra.ph/file/e4c9a3099df26f28e765d.jpg",
+  "keywords": ["plugin","modular","productivity"],
+  "repository": "https://github.com/tepthon-arabic/TepthonAr",
+  "website": "#TODO",
+  "success_url": "#TODO",
+  "env": {
+    "API_ID": {
+      "description": "كـود أيبـي أيـدي〔 App id 〕لا تغيرهـا",
+      "value": "27455984"
     },
-    "formation": {
-        "ultroid": {
-            "quantity": 1,
-            "size": "eco"
-        }
+    "API_HASH": {
+      "description": "كـود أيبـي هـاش〔 Api hash 〕..لا تغيرهـا",
+      "value": "62d5f68ce2e9189636967120220f5755"
+    },
+    "SESSION": {
+      "description": "كـــود تيـــرمكـــس - الكـود الكبيـر مـن بـوت تيرمكــس",
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "تـــوكـــن البـــوت - من بـوت فـاذر〔 @Botfather 〕..",
+      "value": ""
+    },
+    "HEROKU_API": {
+      "description": "كـــود مفتـــاح هيروكـــو - تروح ع الرابـط » https://dashboard.heroku.com/account  ع آخـر خانـة وتنسـخ الكـود لهنـا",
+      "value": "",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "اســـم التطبيـــق - نفـس اول مربـع بالقائمـة نسـخ لصـق حـروف إنجليزية صغيرة",
+      "value": "",
+      "required": false
     }
+  },
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "15"
+    }
+  }],
+  "buildpacks": [{
+    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
+  },{
+    "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+  },{
+    "url": "https://github.com/riganf/heroku-buildpack-p7zip"
+  },{
+    "url": "https://github.com/rahulps1000/heroku-buildpack-nodejs"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+  },{
+    "url": "https://github.com/chrismytton/heroku-buildpack-jq"
+  },{
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "stack": "heroku-22"
 }
