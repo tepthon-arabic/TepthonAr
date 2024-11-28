@@ -6,7 +6,7 @@ import requests
 import asyncio
 from telethon import events
 c = requests.session()
-bot_username = '@t06bot'
+bot_username = '@zmmbot'
 plugins = ['yes']
 
 
